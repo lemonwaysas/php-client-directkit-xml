@@ -256,7 +256,10 @@ class LemonWayKit{
 					libxml_use_internal_errors(true);
 					$xml = new SimpleXMLElement($response);
 					//Retrieve result
-					$content = $xml->{$methodName.'Response'}->{$methodName.'Result'};
+					if(strcmp ($methodName, 'MoneyInWithCardId' ) == 0)
+						$content = $xml->{$methodName.'Response'}->{'MoneyInResult'};
+					else
+						$content = $xml->{$methodName.'Response'}->{$methodName.'Result'};
 					self::printDirectkitOutput($content);
 					return new ApiResponse($content);
 				case 400:
