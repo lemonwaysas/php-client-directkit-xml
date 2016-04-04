@@ -1,0 +1,18 @@
+{
+  "name": "lemonway/php-sdk",
+  "description": "PHP SDK for Lemon Way API",
+  "type": "library",
+  "keywords": ["Lemon Way","LemonWay","wallet","payment","marketplace"],
+  "homepage": "https://bitbucket.org/usul_/lemonway-php-sdk",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "require": {
+    "php": ">=5.4.0",
+    "ext-curl": "*",
+    "ext-openssl": "*"
+  },
+  "autoload": {
+    "psr-4": { "LemonWay\\": "" },
+    "files": ["LemonWay/Autoloader.php"]
+  }
+}

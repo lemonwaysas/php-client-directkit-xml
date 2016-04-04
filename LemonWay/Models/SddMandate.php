@@ -1,6 +1,14 @@
 <?php
-
+namespace LemonWay\Models;
 class SddMandate{
+
+	const RECURRING = '1';
+	const NO_RECURRING = '0';
+
+	const WAITING_VALIDATION = '0';
+	const VALIDATED = '5';
+	const DEACTIVATED = '8';
+
 
 	/**
      * ID as defined by Lemon Way
@@ -9,7 +17,7 @@ class SddMandate{
     public $ID;
 	
 	/**
-     * STATUS {0,5,6,8,9}
+     * STATUS {0,5}
      * @var string
      */
     public $STATUS;

@@ -1,5 +1,5 @@
 <?php
-
+namespace LemonWay\Models;
 class LwError{
 
 	/**

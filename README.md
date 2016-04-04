@@ -1,20 +1,230 @@
-Version: 1.48
-
-These examples are based on Lemon Way API documentation v6.9
-
- * `LemonWayKit.php`: calls to Lemon Way's DIRECKITXML and WEBKIT
- * `Examples.php`: shows how to combine API functionalities in order to do what you want
- * `index.php`: launches the examples, and used as a return page after 3D Secure card payment example
+Lemon Way PHP SDK
+=================================================
+Lemon Way SDK is a PHP client library to work with
+[Lemon Way API](http://documentation.lemonway.fr/api-en).
 
 
-# GET STARTED
+Installation with Composer
+-------------------------------------------------
+You can use Lemon Way SDK library as a dependency in your project with [Composer](https://getcomposer.org/) (which is the preferred technique). Follow [these installation instructions](https://getcomposer.org/doc/00-intro.md) if you do not already have Composer installed.
+A composer.json file is available in the repository and it has been referenced from [Packagist](https://packagist.org/packages/lemonway/php-sdk).
 
- * `LemonWayKit.php`: 
-  - `$printInputAndOutputXml`: set if you want to print everything that you send to Lemon Way's webservices and Lemon Way's outputs.
-  - `$accessConfig`: replace the URLs with the ones Lemon Way gave you. The password is the default one. 
+The installation with Composer is easy and reliable:
 
- * `Examples.php`:
-  - `$myUrls`: change to your URLs if you need to test Money-in by card in 3D Secure, using Atos/BNP secure form
-	
- * index.php : 
-  - uncomment whatever you want to test
+Step 1 - Add the Lemon Way SDK as a dependency by executing the following command:
+
+    you@yourhost:/path/to/your-project$ composer require lemonway/php-sdk:^1.0
+
+Step 2 - Update your dependencies with Composer
+
+    you@yourhost:/path/to/your-project$ composer update
+
+Step 3 - Finally, be sure to include the autoloader in your project
+
+    require_once '/path/to/your-project/vendor/autoload.php';
+
+The Library has been added into your dependencies and is ready to be used.
+
+Installation with Lemon Way PHP Symfony Bundle
+-------------------------------------------------
+You can use composer to install the [Lemon Way PHP Symfony Bundle](https://bitbucket.org/usul_/lemonway-php-bundle)
+
+`composer require lemonway/sdk-bundle`
+
+Then, update your `app/config/AppKernel.php` file:
+
+```php
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new Lemonway\SdkBundle\LemonwaySdkBundle(),
+            // ...
+        );
+
+        return $bundles;
+    }
+```
+
+Configure the bundle in `app/config/config.yml`:
+
+```yaml
+lemonway_sdk:
+    directKitUrl: "%lemonway_directKitUrl%"
+    webKitUrl:    "%lemonway_webKitUrl%"
+    login:        "%lemonway_login%"
+    password:     "%lemonway_password%"
+    lang:         "%lemonway_lang%"
+    debug:        "%lemonway_debug%"
+```
+
+Finally, update your `app/config/parameters.yml` file to store your Lemonway API credentials:
+
+```yaml
+parameters:
+    # ...
+    lemonway_directKitUrl: "MyDirectKitUrl"
+    lemonway_webKitUrl:    "MyWebkitUrl"
+    lemonway_login:        "MyLogin"
+    lemonway_password:     "MyPassword"
+    lemonway_lang:         "fr"
+    lemonway_debug:        false
+```
+
+
+Installation without Composer
+-------------------------------------------------
+SDK has been written in PHP 5.4. You should ensure that curl and openssl extensions (that are part of standard PHP distribution) are enabled in your PHP installation.
+
+The project attempts to comply with PSR-4 specification for autoloading classes from file paths. As a namespace prefix is `LemonWay\` with base directory `/path/to/your-project/`.
+
+But if you're not using PSR-4 or Composer, the installation is as easy as downloading the library and storing it under any location that will be available for including in your project (don't forget to include the required library dependencies though):
+```php
+    require_once '/path/to/your-project/LemonWay/Autoloader.php';
+```
+
+Contacts
+-------------------------------------------------
+Report bugs or suggest features using
+[issue tracker on GitHub](https://github.com/lemonway/php-sdk).
+
+
+Account creation
+-------------------------------------------------
+You need a sandbox to run Examples.
+
+
+Configuration
+-------------------------------------------------
+Using the credentials information from Lemon Way support, you should then set `$api->config->wlLogin` to your Lemon Way login and `$api->config->wlPass` to your Lemon Way password.
+
+```php
+require_once '/path/to/your-project/vendor/autoload.php';
+$api = new LemonWayAPI();
+
+$api->config->dkUrl = 'Your DirectKit url';
+$api->config->wkUrl = 'Your WebKit url';
+$api->config->wlLogin = 'Your login';
+$api->config->wlPass = 'Your password';
+$api->config->lang = 'Your language';
+//$api->config->isDebugEnabled = true; //Uncomment to turn on debug mode
+
+// call some API methods...
+$result = $api->RegisterWallet(...);
+```
+
+Response Object
+-------------------------------------------------
+All ```LemonWayAPI``` methods are returning ```\LemonWay\ApiResponse``` object.
+It is a dynamic object with variable properties.
+
+###**Fixed properties :**
+
+|Property | Type | Description|
+|---------|------|------------|
+|lwError | [LemonWay\Models\LwError](LemonWay/Models/LwError.php) | LwError Object|
+|lwXml | SimpleXMLElement | Raw xml return as SimpleXMLElement object. Details in [Lemon Way API](http://documentation.lemonway.fr/api-en)|
+
+
+###**Variable properties:**
+
+Those properties depends of which method was called.
+
+|Property | Type | Description|
+|---------|------|------------|
+|wallets | array of [LemonWay\Models\Wallet](LemonWay/Models/Wallet.php) | Filled when the API returns multiple Wallets|
+|operations | array of [LemonWay\Models\Operation](LemonWay/Models/Operation.php) | Filled when the API returns multiple Operations|
+|wallet | [LemonWay\Models\Wallet](LemonWay/Models/Wallet.php) | Filled when the API returns only one Wallet|
+|operation | [LemonWay\Models\Operation](LemonWay/Models/Operation.php) | Filled when the API returns only one Operation|
+|kycDoc | [LemonWay\Models\KycDoc](LemonWay/Models/KycDoc.php) | Filled when the API returns a KycDoc|
+|iban | [LemonWay\Models\Iban](LemonWay/Models/Iban.php) | Filled when the API returns an Iban|
+|sddMandate | [LemonWay\Models\SddMandate](LemonWay/Models/SddMandate.php) | Filled when the API returns a SDD Mandate|
+
+Sample usage
+-------------------------------------------------
+```php
+require_once '/path/to/your-project/vendor/autoload.php';
+$api = new LemonWayAPI();
+
+$api->config->dkUrl = 'Your DirectKit url';
+$api->config->wkUrl = 'Your WebKit url';
+$api->config->wlLogin = 'Your login';
+$api->config->wlPass = 'Your password';
+$api->config->lang = 'Your language';
+
+
+// call some API methods...
+$walletID = 'Fill in with a unique id';
+$response = $api->RegisterWallet(array('wallet' => $walletID,
+                                        'clientMail' => $walletID.'@mail.fr',
+                                        'clientTitle' => Wallet::UNKNOWN,
+                                        'clientFirstName' => 'Paul',
+                                        'clientLastName' => 'Atreides'));
+if (isset($response->lwError)) {
+    print 'Error, code '.$response->lwError->CODE.' : '.$response->lwError->MSG;
+} else {
+    print '<br/>Wallet created : ' . $response->wallet->ID;
+
+    // OR BY USING lwXml :
+    print '<br/>Wallet created : ' . $response->lwXml->WALLET->ID;
+}
+```
+
+Sample usage with Symfony bundle
+---------------------------------
+
+The bundle automatically registers a `lemonway_sdk.api` service in the Dependency Injection Container. That service is
+an instance of `\LemonWay\LemonWayAPI`.
+
+Example usage in a controller:
+
+```php
+// ...
+
+    public function registerWalletAction()
+    {
+        // Register a Wallet
+        $res = $this->container->('lemonway_sdk.api')
+            ->RegisterWallet(array('wallet' => '123456789',
+                        'clientMail' => '123456789@mail.fr',
+                        'clientTitle' => 'U',
+                        'clientFirstName' => 'John',
+                        'clientLastName' => 'Doo'));
+
+        if (isset($res->lwError)) {
+            print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
+        } else {
+            print '<br/>Wallet created : ' . $res->wallet->ID;
+
+        }
+    }
+
+// ...
+}
+```
+
+
+
+Examples
+--------
+In the [examples folder](examples), you can find **an example for each API method**.
+
+_You need to run the examples in a web server with php configured and a **hostname different from localhost**._
+
+_You also need a sandbox if you want to run examples_
+
+An **API method / example  match table** could be find in the [Index of examples folder](examples/index.php) in HTML format
+and also in MarkDown in the [examples folder README.md](examples).
+
+###**Configuration**
+There's two files that handles the examples configuration:
+
+| File | Description |
+|------|-------------|
+|[ExamplesDatas](examples/ExamplesDatas.php)| Random ID generator, Test card number, Test Iban ... |
+|[ExamplesBootstrap](examples/ExamplesBootstrap.php)| API configuration (login, urls ...), API factory, Host configuration |
+
+
+
+
+
