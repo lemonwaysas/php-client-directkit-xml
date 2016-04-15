@@ -814,6 +814,10 @@ class LemonWayAPI
                             $content = $xml->{$methodName . 'Response'}->{'UnRegisterSddMandateResult'};
                             break;
 
+                        case 'MoneyInWithCardId':
+                            $content = $xml->{$methodName.'Response'}->{'MoneyInResult'};
+                            break;
+
                         default:
                             $content = $xml->{$methodName . 'Response'}->{$methodName . 'Result'};
                             break;
