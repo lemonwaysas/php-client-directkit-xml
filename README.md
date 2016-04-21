@@ -25,53 +25,6 @@ Step 3 - Finally, be sure to include the autoloader in your project
 
 The Library has been added into your dependencies and is ready to be used.
 
-Installation with Lemon Way PHP Symfony Bundle
--------------------------------------------------
-You can use composer to install the [Lemon Way PHP Symfony Bundle](https://bitbucket.org/usul_/lemonway-php-bundle)
-
-`composer require lemonway/sdk-bundle`
-
-Then, update your `app/config/AppKernel.php` file:
-
-```php
-    public function registerBundles()
-    {
-        $bundles = array(
-            // ...
-            new Lemonway\SdkBundle\LemonwaySdkBundle(),
-            // ...
-        );
-
-        return $bundles;
-    }
-```
-
-Configure the bundle in `app/config/config.yml`:
-
-```yaml
-lemonway_sdk:
-    directKitUrl: "%lemonway_directKitUrl%"
-    webKitUrl:    "%lemonway_webKitUrl%"
-    login:        "%lemonway_login%"
-    password:     "%lemonway_password%"
-    lang:         "%lemonway_lang%"
-    debug:        "%lemonway_debug%"
-```
-
-Finally, update your `app/config/parameters.yml` file to store your Lemonway API credentials:
-
-```yaml
-parameters:
-    # ...
-    lemonway_directKitUrl: "MyDirectKitUrl"
-    lemonway_webKitUrl:    "MyWebkitUrl"
-    lemonway_login:        "MyLogin"
-    lemonway_password:     "MyPassword"
-    lemonway_lang:         "fr"
-    lemonway_debug:        false
-```
-
-
 Installation without Composer
 -------------------------------------------------
 SDK has been written in PHP 5.4. You should ensure that curl and openssl extensions (that are part of standard PHP distribution) are enabled in your PHP installation.
