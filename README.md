@@ -123,41 +123,6 @@ if (isset($response->lwError)) {
 }
 ```
 
-Sample usage with Symfony bundle
----------------------------------
-
-The bundle automatically registers a `lemonway_sdk.api` service in the Dependency Injection Container. That service is
-an instance of `\LemonWay\LemonWayAPI`.
-
-Example usage in a controller:
-
-```php
-// ...
-
-    public function registerWalletAction()
-    {
-        // Register a Wallet
-        $res = $this->container->('lemonway_sdk.api')
-            ->RegisterWallet(array('wallet' => '123456789',
-                        'clientMail' => '123456789@mail.fr',
-                        'clientTitle' => 'U',
-                        'clientFirstName' => 'John',
-                        'clientLastName' => 'Doo'));
-
-        if (isset($res->lwError)) {
-            print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
-        } else {
-            print '<br/>Wallet created : ' . $res->wallet->ID;
-
-        }
-    }
-
-// ...
-}
-```
-
-
-
 Examples
 --------
 In the [examples folder](examples), you can find **an example for each API method**.
