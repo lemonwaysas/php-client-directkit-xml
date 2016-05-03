@@ -746,12 +746,20 @@ class LemonWayAPI
     private function sendRequest($methodName, $params, $version)
     {
         $xmlns = 'Service_mb_xml';
+        
         $ua = '';
-        if (isset($_SERVER['HTTP_USER_AGENT']))
+		if($this->config->user_agent){
+			$ua = $this->config->user_agent;
+		} elseif(isset($_SERVER['HTTP_USER_AGENT'])){
             $ua = $_SERVER['HTTP_USER_AGENT'];
+		}
+		
         $ip = '';
-        if (isset($_SERVER['REMOTE_ADDR']))
+		if($this->config->remote_addr){
+			$ip = $this->config->remote_addr;
+		} elseif(isset($_SERVER['REMOTE_ADDR'])){
             $ip = $_SERVER['REMOTE_ADDR'];
+		}
 
         $xml_soap = '<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body><' . $methodName . ' xmlns="' . $xmlns . '">';
 
