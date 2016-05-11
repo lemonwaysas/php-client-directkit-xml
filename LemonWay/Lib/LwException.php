@@ -10,7 +10,7 @@ class LwException extends \Exception
     const NOT_FOUND = 404;
     const INTERNAL_ERROR = 500;
 
-    public function __construct($message, $code = 0, Exception $previous = null)
+    public function __construct($message, $code = 0, \Exception $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
