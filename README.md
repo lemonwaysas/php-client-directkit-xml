@@ -151,6 +151,8 @@ There's two files that handles the examples configuration:
 |[ExamplesBootstrap](examples/ExamplesBootstrap.php)| API configuration (login, urls ...), API factory, Host configuration |
 
 
-
-
-
+[`SoapClient`]: http://php.net/manual/en/class.soapclient.php
+[SoapClient]: https://github.com/lemonwaysas/php-client-directkit-xml-soap
+[SoapClient SDK]: https://github.com/lemonwaysas/php-client-directkit-xml-soap-sdk
+[LemonWay SDK]: https://github.com/lemonwaysas/php-client-directkit-xml
+[Lemonway Directkit API]: http://documentation.lemonway.fr/
