@@ -32,8 +32,8 @@ if (isset($res->lwError)){
 print '<br/>Wallet created : ' . $res->wallet->ID;
 
 //UploadFile
-$file = file_get_contents(ExamplesDatas::FILE_UPLOAD, true);
-$buffer = base64_encode ($file);
+$buffer = file_get_contents(ExamplesDatas::FILE_UPLOAD, true);
+
 $res2 = $api->UploadFile(array('wallet'=>$walletID,
     'fileName'=>'thefilename.jpeg',
     'type'=>KycDoc::TYPE_PROOF_OF_ADDRESS,
