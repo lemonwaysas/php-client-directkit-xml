@@ -748,22 +748,23 @@ class LemonWayAPI
         $xmlns = 'Service_mb_xml';
         
         $ua = '';
-		if($this->config->user_agent){
-			$ua = $this->config->user_agent;
-		} elseif(isset($_SERVER['HTTP_USER_AGENT'])){
+        if($this->config->user_agent){
+            $ua = $this->config->user_agent;
+        } elseif(isset($_SERVER['HTTP_USER_AGENT'])){
             $ua = $_SERVER['HTTP_USER_AGENT'];
-		}
-		
+        }
+        
         $ip = '';
-		if($this->config->remote_addr){
-			$ip = $this->config->remote_addr;
-		} elseif(isset($_SERVER['REMOTE_ADDR'])){
+        if($this->config->remote_addr){
+            $ip = $this->config->remote_addr;
+        } elseif(isset($_SERVER['REMOTE_ADDR'])){
             $ip = $_SERVER['REMOTE_ADDR'];
-		}
+        }
 
         $xml_soap = '<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body><' . $methodName . ' xmlns="' . $xmlns . '">';
 
         foreach ($params as $key => $value) {
+            $value = str_replace("&", urlencode("&"), $value);
             $xml_soap .= '<' . $key . '>' . $value . '</' . $key . '>';
         }
         $xml_soap .= '<version>' . $version . '</version>';
@@ -794,6 +795,7 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_soap);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
         $response = curl_exec($ch);
 
