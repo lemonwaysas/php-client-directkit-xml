@@ -863,6 +863,10 @@ class LemonWayAPI
      */
     public function printCardForm($moneyInToken, $cssUrl = '', $language = 'fr')
     {
+        // If Payxpert
+        // header('Location: '.$this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
+
+        // If Atos
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
