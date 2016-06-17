@@ -867,7 +867,9 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        
         $server_output = curl_exec($ch);
         if (curl_errno($ch)) {
             error_log('curl_err : ' . curl_error($ch));
