@@ -41,7 +41,7 @@ $buffer = file_get_contents(ExamplesDatas::FILE_UPLOAD, true);
 $res2 = $api->UploadFile(array('wallet'=>$walletID,
     'fileName'=>'thefilename.jpeg',
     'type'=>KycDoc::TYPE_PROOF_OF_ADDRESS,
-    'buffer'=>$buffer));
+    'buffer'=>base64_encode($buffer)));
 
 if (isset($res2->lwError)){
     print '<br/>Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
