@@ -794,8 +794,8 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_soap);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
 
         $response = curl_exec($ch);
 
