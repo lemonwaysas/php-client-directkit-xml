@@ -816,10 +816,6 @@ class LemonWayAPI
                     //Retrieve result
                     $content = '';
                     switch($methodName){
-                        case 'UpdateWalletDetails':
-                            $content = $xml->{$methodName . 'Response'}->{'UpdateWalletStatusResult'};
-                            break;
-
                         case 'UnregisterSddMandate':
                             $content = $xml->{$methodName . 'Response'}->{'UnRegisterSddMandateResult'};
                             break;
