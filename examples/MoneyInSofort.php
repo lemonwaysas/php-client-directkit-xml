@@ -41,8 +41,8 @@ else {
         return;
     }
 
-    print '<br/>ID : '. $res2->lwXml->SOFONORINIT->ID;
-    print '<br/>Action URL: '. $res2->lwXml->SOFONORINIT->actionUrl;
+    print '<br/>ID : '. $res2->lwXml->SOFORTINIT->ID;
+    print '<br/>Action URL: '. $res2->lwXml->SOFORTINIT->actionUrl;
 
     //Transaction history
     $res = $api->GetWalletTransHistory(array('wallet' => $walletID));
