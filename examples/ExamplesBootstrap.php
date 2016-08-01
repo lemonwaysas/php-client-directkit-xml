@@ -15,13 +15,13 @@ class ExamplesBootstrap{
      * DIRECTKIT_URL Used to set API DirectKit url
      * @var string
      */
-    const DIRECTKIT_URL    = 'https://ws.lemonway.fr/mb/freelancesdk/dev/directkitxml/service.asmx';
+    const DIRECTKIT_URL    = 'https://ws.lemonway.fr/mb/demo/dev/directkitxml/service.asmx';
 
     /**
      * WEBKIT_URL Used to set API WebKit url
      * @var string
      */
-    const WEBKIT_URL       = 'https://m.lemonway.fr/mb/freelancesdk/dev/';
+    const WEBKIT_URL       = 'https://m.lemonway.fr/mb/demo/dev/';
 
     /**
      * CSS_URL Used to set API CSS url for LemonWayAPI::printCardForm
