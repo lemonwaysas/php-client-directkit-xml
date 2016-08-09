@@ -757,7 +757,11 @@ class LemonWayAPI
         $ip = '';
         if($this->config->remote_addr){
             $ip = $this->config->remote_addr;
-        } elseif(isset($_SERVER['REMOTE_ADDR'])){
+        } elseif (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        } else {
             $ip = $_SERVER['REMOTE_ADDR'];
         }
 
