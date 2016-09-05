@@ -286,6 +286,14 @@
             <td><a target="_blank" href="MoneyInNeosurf.php">MoneyInNeosurf</a></td>
             <td>&nbsp;</td>
         </tr>
+         <tr class="sub-separator">
+            <td colspan="3">Payment Form</td>
+        </tr>
+        <tr class="sub">
+            <td>PaymentForm</td>
+            <td><a target="_blank" href="CreatePaymentForm.php">PaymentForm</a></td>
+            <td>&nbsp;</td>
+        </tr>
         <tr>
             <td>GetMoneyInTransDetails</td>
             <td><a target="_blank" href="MoneyIn_3D_Indirect/index.php">MoneyIn 3D Indirect - MoneyInWebFinalize</a></td>

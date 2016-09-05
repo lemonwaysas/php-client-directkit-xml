@@ -639,6 +639,30 @@ class LemonWayAPI
     }
 
     /**
+     * Create Payment Form
+     *
+     * @param array     $params
+     *
+     * @return ApiResponse
+     */
+    public function CreatePaymentForm($params)
+    {
+        return $this->sendRequest('CreatePaymentForm', $params, '1.0')->lwXml;
+    }
+
+    /**
+     * Disable Payment Form
+     *
+     * @param array     $params
+     *
+     * @return ApiResponse
+     */
+    public function DisablePaymentForm($params)
+    {
+        return $this->sendRequest('DisablePaymentForm', $params, '1.0')->lwXml;
+    }
+
+    /**
      * Get Charge backs
      *
      * @param array     $params
@@ -798,8 +822,8 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_soap);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
 
         $response = curl_exec($ch);
 
