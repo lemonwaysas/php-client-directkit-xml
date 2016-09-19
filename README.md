@@ -63,7 +63,7 @@ Using the credentials information from Lemon Way support, you should then set `$
 require_once '/path/to/your-project/vendor/autoload.php';
 $api = new LemonWayAPI();
 
-$api->config->dkUrl = 'Your DirectKit url';
+$api->config->dkUrl = 'Your DirectKitXML url';
 $api->config->wkUrl = 'Your WebKit url';
 $api->config->wlLogin = 'Your login';
 $api->config->wlPass = 'Your password';
@@ -107,7 +107,7 @@ Sample usage
 require_once '/path/to/your-project/vendor/autoload.php';
 $api = new LemonWayAPI();
 
-$api->config->dkUrl = 'Your DirectKit url';
+$api->config->dkUrl = 'Your DirectKitXML url';
 $api->config->wkUrl = 'Your WebKit url';
 $api->config->wlLogin = 'Your login';
 $api->config->wlPass = 'Your password';
