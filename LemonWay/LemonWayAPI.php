@@ -128,7 +128,7 @@ class LemonWayAPI
     {
         $res = $this->sendRequest('MoneyIn3DConfirm', $params, '1.1');
         if (!isset($res->lwError)) {
-            $res->operation = new Models\Operation($res->lwXml->MONEYIN->TRANS->HPAY);
+            $res->operation = new Models\Operation($res->lwXml->MONEYIN3DCONFIRM->HPAY);
         }
         return $res;
     }
