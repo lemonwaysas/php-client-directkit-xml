@@ -898,8 +898,8 @@ class LemonWayAPI
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
         
         $server_output = curl_exec($ch);
         if (curl_errno($ch)) {
