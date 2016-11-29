@@ -911,7 +911,10 @@ class LemonWayAPI
             switch ($returnCode) {
                 case 200:
                     curl_close($ch);
-                    print($server_output);
+                    $parsedUrl = parse_url($this->config->wkUrl);
+                    $root = strstr($this->config->wkUrl, $parsedUrl['path'], true);
+                    $server_output = preg_replace("/src=\"([a-zA-Z\/\.]*)\"/i", "src=\"" . $root . "$1\"", $server_output);
+                    echo($server_output);
                     break;
                 default:
                     throw new LwException("An error has occured for HTTP code $returnCode", $returnCode);
