@@ -9,49 +9,55 @@ class ExamplesBootstrap{
      * HOST Used to set some examples urls
      * @var string
      */
-    const HOST             = 'http://lemon.loc';
+    const HOST  = 'localhost';
 
     /**
      * DIRECTKIT_URL Used to set API DirectKit url
      * @var string
      */
-    const DIRECTKIT_URL    = 'https://ws.lemonway.fr/mb/demo/dev/directkitxml/service.asmx';
+    const DIRECTKIT_URL = 'https://sandbox-api.lemonway.fr/mb/demo/dev/directkitxml/Service.asmx';
 
     /**
      * WEBKIT_URL Used to set API WebKit url
      * @var string
      */
-    const WEBKIT_URL       = 'https://m.lemonway.fr/mb/demo/dev/';
+    const WEBKIT_URL = 'https://sandbox-webkit.lemonway.fr/demo/dev/';
+
+    /**
+     * SANDBOX Used to tell whether it's a sandbox
+     * @var string
+     */
+    const SANDBOX = true;
 
     /**
      * CSS_URL Used to set API CSS url for LemonWayAPI::printCardForm
      * @var string
      */
-    const CSS_URL          = 'https://www.lemonway.fr/mercanet_lw.css';
+    const CSS_URL = 'https://www.lemonway.fr/mercanet_lw.css';
 
     /**
      * LOGIN Used to set API user login
      * @var string
      */
-    const LOGIN            = 'society';
+    const LOGIN = 'society';
 
     /**
      * PASS Used to set API user password
      * @var string
      */
-    const PASS             = '123456';
+    const PASS = '123456';
 
     /**
      * LANG Used to set API language
      * @var string
      */
-    const LANG             = 'fr';
+    const LANG = 'en';
 
     /**
      * DEBUG Used to switch API in debug mode
      * @var boolean
      */
-    const DEBUG            = false;
+    const DEBUG = false;
 
     /**
      * api Lemon Way API
@@ -64,11 +70,12 @@ class ExamplesBootstrap{
      * @return LemonWayAPI
      */
     public static function getApiInstance(){
-        if(self::$api == null){
+        if (self::$api == null) {
             self::$api = new LemonWayAPI();
 
             self::$api->config->dkUrl = self::DIRECTKIT_URL;
             self::$api->config->wkUrl = self::WEBKIT_URL;
+            self::$api->config->sandbox = self::SANDBOX;
             self::$api->config->wlLogin = self::LOGIN;
             self::$api->config->wlPass = self::PASS;
             self::$api->config->lang = self::LANG;

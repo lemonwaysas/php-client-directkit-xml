@@ -18,6 +18,12 @@ class Config
     public $wkUrl;
 
     /**
+     * is Sandbox
+     * @var boolean
+     */
+    public $sandbox = true;
+
+    /**
      * Login
      * @var string
      */

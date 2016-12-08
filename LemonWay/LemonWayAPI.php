@@ -20,11 +20,12 @@ class LemonWayAPI
     /**
      * LemonWayKit constructor.
      */
-    public function __construct($directKitUrl = '', $webKitUrl = '', $login = '', $password = '', $lang = 'fr', $debug = false)
+    public function __construct($directKitUrl = '', $webKitUrl = '', $sandbox = true,  $login = '', $password = '', $lang = 'fr', $debug = false)
     {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
         $this->config->wkUrl = $webKitUrl;
+        $this->config->sandbox = $sandbox;
         $this->config->wlLogin = $login;
         $this->config->wlPass = $password;
         $this->config->lang = $lang;
@@ -827,8 +828,7 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_soap);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, !$this->config->sandbox);
 
         $response = curl_exec($ch);
 
@@ -899,8 +899,7 @@ class LemonWayAPI
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        //curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true); // true if in production
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);  // false if in development
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, !$this->config->sandbox);
         
         $server_output = curl_exec($ch);
         if (curl_errno($ch)) {
