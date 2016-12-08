@@ -131,18 +131,20 @@ if (isset($response->lwError)) {
 }
 ```
 
-Examples
+Get started with our examples
 --------
 In the [examples folder](examples), you can find **an example for each API method**.
 
 _You need to run the examples in a web server with php configured and a **hostname different from localhost**._
 
-_You also need a sandbox if you want to run examples_
+_You also need a sandbox if you want to run examples (contact Lemon Way to create a sandbox)_
 
 An **API method / example  match table** could be find in the [Index of examples folder](examples/index.php) in HTML format
 and also in MarkDown in the [examples folder README.md](examples).
 
 ###**Configuration**
+By default, the examples run with our sandbox demo.
+If you need your own sandbox, please contact Lemon Way then do these configurations.
 There's two files that handles the examples configuration:
 
 | File | Description |
