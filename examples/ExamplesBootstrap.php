@@ -24,10 +24,10 @@ class ExamplesBootstrap{
     const WEBKIT_URL = 'https://sandbox-webkit.lemonway.fr/demo/dev/';
 
     /**
-     * SANDBOX Used to tell whether it's a sandbox
+     * SSLVERIFICATION Used to tell whether it needs to verifiy SSL
      * @var string
      */
-    const SANDBOX = true;
+    const SSLVERIFICATION = false;
 
     /**
      * CSS_URL Used to set API CSS url for LemonWayAPI::printCardForm
@@ -75,7 +75,7 @@ class ExamplesBootstrap{
 
             self::$api->config->dkUrl = self::DIRECTKIT_URL;
             self::$api->config->wkUrl = self::WEBKIT_URL;
-            self::$api->config->sandbox = self::SANDBOX;
+            self::$api->config->sslVerification = self::SSLVERIFICATION;
             self::$api->config->wlLogin = self::LOGIN;
             self::$api->config->wlPass = self::PASS;
             self::$api->config->lang = self::LANG;

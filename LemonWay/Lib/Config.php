@@ -18,10 +18,10 @@ class Config
     public $wkUrl;
 
     /**
-     * is Sandbox
+     * SSL Verification
      * @var boolean
      */
-    public $sandbox = true;
+    public $sslVerification = false;
 
     /**
      * Login
