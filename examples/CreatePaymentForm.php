@@ -6,15 +6,14 @@ require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : Create Payment Form
- *		Steps :
- *			- CreatePaymentForm : Use "CreatePaymentForm" to create a payment form.
- *			- Click on "Disable this payment form" to disable it
+ *      Case : Create Payment Form
+ *      Steps :
+ *          - CreatePaymentForm : Use "CreatePaymentForm" to create a payment form.
+ *          - Click on "Disable this payment form" to disable it
  */
 
-//CreatePaymentForm
 $res = $api->CreatePaymentForm(array(
-	'optId' => 'SDKTEST'
+    'optId' => 'SDKTEST'
 ));
 
 if (isset($res->lwError)){
@@ -23,8 +22,8 @@ if (isset($res->lwError)){
 }
 
 echo '<pre>';
-print ("<a target='_blank' href='" . $api->config->wkUrl . "payment-page/?fId=" . $res->FORM->id . "' >" . $api->config->wkUrl . "payment-page/?fId=" . $res->FORM->id . "</a>");
-print ("<br /><a target='_blank' href='DisablePaymentForm.php?id=" . $res->FORM->id . "'>Disable this payment form</a>");
+print ("<a target='_blank' href='" . $api->config->wkUrl . "payment-page/?fId=" . $res->lwXml->FORM->id . "' >" . $api->config->wkUrl . "payment-page/?fId=" . $res->lwXml->FORM->id . "</a>");
+print ("<br /><a target='_blank' href='DisablePaymentForm.php?id=" . $res->lwXml->FORM->id . "'>Disable this payment form</a>");
 echo '</pre>';
 
 ?>

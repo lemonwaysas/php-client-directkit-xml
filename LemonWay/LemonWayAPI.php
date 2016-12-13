@@ -652,7 +652,7 @@ class LemonWayAPI
      */
     public function CreatePaymentForm($params)
     {
-        return $this->sendRequest('CreatePaymentForm', $params, '1.0')->lwXml;
+        return $this->sendRequest('CreatePaymentForm', $params, '1.0');
     }
 
     /**
@@ -664,7 +664,7 @@ class LemonWayAPI
      */
     public function DisablePaymentForm($params)
     {
-        return $this->sendRequest('DisablePaymentForm', $params, '1.0')->lwXml;
+        return $this->sendRequest('DisablePaymentForm', $params, '1.0');
     }
 
     /**
