@@ -27,7 +27,7 @@ class ExamplesBootstrap{
      * SSLVERIFICATION Used to tell whether it needs to verifiy SSL
      * @var string
      */
-    const SSLVERIFICATION = false;
+    const SSLVERIFICATION = false; // true if in production
 
     /**
      * CSS_URL Used to set API CSS url for LemonWayAPI::printCardForm

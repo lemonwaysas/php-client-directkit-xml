@@ -21,7 +21,7 @@ class Config
      * SSL Verification
      * @var boolean
      */
-    public $sslVerification = false;
+    public $sslVerification = true;
 
     /**
      * Login
