@@ -58,6 +58,12 @@ class ExamplesDatas{
     const IBAN_BIC = 'ABCDEFGHIJK';
 
     /**
+     * IBAN_COUNTRY IBAN holder/bank country
+     * @var string
+     */
+    const IBAN_COUNTRY = 'US';
+
+    /**
      * IBAN_AD1 IBAN address 1
      * @var string
      */

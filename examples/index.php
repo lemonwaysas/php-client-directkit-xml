@@ -290,7 +290,12 @@
             <td colspan="3">Payment Form</td>
         </tr>
         <tr class="sub">
-            <td>PaymentForm</td>
+            <td>CreatePaymentForm</td>
+            <td><a target="_blank" href="CreatePaymentForm.php">PaymentForm</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr class="sub">
+            <td>DisablePaymentForm</td>
             <td><a target="_blank" href="CreatePaymentForm.php">PaymentForm</a></td>
             <td>&nbsp;</td>
         </tr>
@@ -311,6 +316,11 @@
         <tr>
             <td>RegisterIBAN</td>
             <td><a target="_blank" href="MoneyOut.php">MoneyOut</a></td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>RegisterIBANExtended</td>
+            <td><a target="_blank" href="RegisterIBANExtended.php">RegisterIBANExtended</a></td>
             <td>&nbsp;</td>
         </tr>
         <tr>
