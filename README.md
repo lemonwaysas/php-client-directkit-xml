@@ -2,9 +2,9 @@
 >There are at least 3 ways to consume the LemonWay API in PHP
  1. **[SoapClient]**: the casual method in PHP to consume any Web Service. It is the simplest (**and recommended**) way.
  2. **[SoapClient SDK]**: same with the first method, but all the structure of requests / responses are generated overhead with [`wsdl2phpgenerator`](http://wsdl2phpgenerator.github.io/wsdl2phpgenerator/)
- 3. **[LemonWay SDK] (not recommended)**: call the web service as a normal http request [`curl_init`](http://php.net/manual/en/function.curl-init.php). The SDK will help you to parse the SOAP response.
+ 3. **[LemonWay SDK (not recommended)]**: call the web service as a normal http request [`curl_init`](http://php.net/manual/en/function.curl-init.php). The SDK will help you to parse the SOAP response.
 
-This example demonstrates the third method.
+This example demonstrates the third method (which is not recommended).
 
 Lemon Way PHP SDK
 =================================================
