@@ -247,6 +247,23 @@ class LemonWayAPI
     }
 
     /**
+     * Register IBAN Extended
+     *
+     * @param array     $params
+     *
+     * @return ApiResponse
+     */
+    public function RegisterIBANExtended($params)
+    {
+        $res = $this->sendRequest('RegisterIBANExtended', $params, '1.1');
+        if (!isset($res->lwError)) {
+            $res->iban = new Models\Iban($res->lwXml->IBAN);
+        }
+
+        return $res;
+    }
+
+    /**
      * Money Out
      *
      * @param array     $params
@@ -665,6 +682,18 @@ class LemonWayAPI
     public function DisablePaymentForm($params)
     {
         return $this->sendRequest('DisablePaymentForm', $params, '1.0');
+    }
+
+    /**
+     * Get Completed Payment Form
+     *
+     * @param array     $params
+     *
+     * @return ApiResponse
+     */
+    public function GetCompletedPaymentForm($params)
+    {
+        return $this->sendRequest('GetCompletedPaymentForm', $params, '1.0');
     }
 
     /**
