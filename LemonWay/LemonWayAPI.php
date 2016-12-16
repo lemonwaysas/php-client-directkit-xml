@@ -875,7 +875,6 @@ class LemonWayAPI
                     libxml_use_internal_errors(true);
                     $xml = new \SimpleXMLElement($response);
                     //Retrieve result
-                    $content = '';
                     switch($methodName){
                         case 'UnregisterSddMandate':
                             $content = $xml->{$methodName . 'Response'}->{'UnRegisterSddMandateResult'};
