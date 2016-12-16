@@ -19,6 +19,14 @@ class LemonWayAPI
 
     /**
      * LemonWayKit constructor.
+     * 
+     * @param string $directKitUrl
+     * @param string $webKitUrl
+     * @param string $login
+     * @param string $password
+     * @param string $lang
+     * @param bool $debug
+     * @param bool $sslVerification
      */
     public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'fr', $debug = false, $sslVerification = true)
     {
@@ -795,11 +803,13 @@ class LemonWayAPI
     /**
      * Send Request to DirectKitUrl
      *
-     * @param string    $methodName
-     * @param array     $params
-     * @param string    $version
-     *
+     * @param string $methodName
+     * @param array $params
+     * @param string $version
+     * 
      * @return ApiResponse
+     * 
+     * @throws LwException
      */
     private function sendRequest($methodName, $params, $version)
     {
@@ -914,9 +924,11 @@ class LemonWayAPI
     /**
      * Print Card Form
      *
-     * @param string    $moneyInToken
-     * @param string    $cssUrl
-     * @param string    $language
+     * @param string $moneyInToken
+     * @param string $cssUrl
+     * @param string $language
+     * 
+     * @throws LwException
      */
     public function printCardForm($moneyInToken, $cssUrl = '', $language = 'fr')
     {
@@ -950,5 +962,3 @@ class LemonWayAPI
         }
     }
 }
-
-?>
