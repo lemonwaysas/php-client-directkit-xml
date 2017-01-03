@@ -826,8 +826,8 @@ class LemonWayAPI
         $xml_soap = '<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body><' . $methodName . ' xmlns="' . $xmlns . '">';
 
         foreach ($params as $key => $value) {
-            $value = str_replace('&', urlencode('&'), $value);
-            $value = str_replace('<', urlencode('<'), $value);
+            $value = str_replace('&', htmlentities('&'), $value);
+            $value = str_replace('<', htmlentities('<'), $value);
             $xml_soap .= '<' . $key . '>' . $value . '</' . $key . '>';
         }
         $xml_soap .= '<version>' . $version . '</version>';
