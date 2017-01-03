@@ -9,7 +9,7 @@ class ExamplesBootstrap{
      * HOST Used to set some examples urls
      * @var string
      */
-    const HOST  = 'localhost';
+    const HOST  = 'http://localhost/php-client-directkit-xml';
 
     /**
      * DIRECTKIT_URL Used to set API DirectKit url
