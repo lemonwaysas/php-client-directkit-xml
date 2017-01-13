@@ -828,6 +828,7 @@ class LemonWayAPI
         foreach ($params as $key => $value) {
             $value = str_replace('&', htmlentities('&'), $value);
             $value = str_replace('<', htmlentities('<'), $value);
+            $value = str_replace('>', htmlentities('>'), $value);
             $xml_soap .= '<' . $key . '>' . $value . '</' . $key . '>';
         }
         $xml_soap .= '<version>' . $version . '</version>';
