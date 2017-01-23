@@ -20,7 +20,7 @@ class LemonWayAPI
     /**
      * LemonWayKit constructor.
      */
-    public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'fr', $debug = false, $sslVerification = true)
+    public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
     {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
@@ -816,7 +816,8 @@ class LemonWayAPI
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            $tmpip = explode(",", $_SERVER['HTTP_X_FORWARDED_FOR']);
+            $ip = trim($tmpip[0]);
         } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
             $ip = $_SERVER['REMOTE_ADDR'];
         } elseif($this->config->remote_addr){
@@ -919,7 +920,7 @@ class LemonWayAPI
      * @param string    $cssUrl
      * @param string    $language
      */
-    public function printCardForm($moneyInToken, $cssUrl = '', $language = 'fr')
+    public function printCardForm($moneyInToken, $cssUrl = '', $language = 'en')
     {
         // If Payxpert
         // echo("<script>location.href = '".$this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language."';</script>");

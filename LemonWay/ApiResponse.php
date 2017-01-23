@@ -15,7 +15,8 @@ class ApiResponse{
 	function __construct($xmlResponse) {
         $this->lwXml = $xmlResponse;
 		if (isset($xmlResponse->E)){
-			$this->lwError = new Models\LwError($xmlResponse->E->Code, $xmlResponse->E->Msg);
+			$this->lwError = new Models\LwError($xmlResponse->E->Code, $xmlResponse->E->Msg .
+             " (" . $xmlResponse->E->Error . ")");
 		}
     }
 	
