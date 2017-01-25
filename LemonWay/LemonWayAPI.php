@@ -887,6 +887,10 @@ class LemonWayAPI
                             $content = $xml->{$methodName.'Response'}->{'MoneyInResult'};
                             break;
 
+                        case 'GetChargebacks':
+                            $content = $xml->{$methodName.'Response'}->{'GetChargeBacksResult'};
+                            break;
+                        
                         default:
                             $content = $xml->{$methodName . 'Response'}->{$methodName . 'Result'};
                             break;
