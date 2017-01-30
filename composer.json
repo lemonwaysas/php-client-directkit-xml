@@ -12,7 +12,6 @@
     "ext-openssl": "*"
   },
   "autoload": {
-    "psr-4": { "LemonWay\\": "" },
-    "files": ["LemonWay/Autoloader.php"]
+    "psr-4": { "LemonWay\\": "LemonWay/" }
   }
 }
