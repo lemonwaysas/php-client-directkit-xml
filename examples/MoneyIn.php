@@ -4,7 +4,6 @@ use LemonWay\Models\Card;
 use LemonWay\Models\Operation;
 use LemonWay\Models\Wallet;
 
-require_once '../LemonWay/Autoloader.php';
 require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 

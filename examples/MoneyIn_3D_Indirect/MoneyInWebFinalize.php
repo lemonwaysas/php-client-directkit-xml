@@ -2,7 +2,6 @@
 namespace LemonWay\Examples;
 use LemonWay\Models\Operation;
 
-require_once '../../LemonWay/Autoloader.php';
 require_once '../ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 

@@ -4,7 +4,6 @@ use LemonWay\Models\KycDoc;
 use LemonWay\Models\SddMandate;
 use LemonWay\Models\Wallet;
 
-require_once '../../LemonWay/Autoloader.php';
 require_once '../ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
@@ -37,7 +36,6 @@ const SIGNING_ERROR_URL = ExamplesBootstrap::HOST.'/examples/SignDocument/index.
  *          - UpdateWalletStatus : updating status wallet
  *          - RegisterSddMandate : Register a new sdd madante for this wallet
  *          - SignDocumentInit : Sign previous Sdd mandate
-
  */
 $walletID = ExamplesDatas::getRandomId();
 $res = $api->RegisterWallet(array('wallet' => $walletID,

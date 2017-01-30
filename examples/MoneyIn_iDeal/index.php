@@ -1,7 +1,7 @@
 <?php
 namespace LemonWay\Examples\MoneyInIDeal;
 use LemonWay\Examples\ExamplesDatas;
-require_once '../../LemonWay/Autoloader.php';
+
 require_once '../ExamplesDatas.php';
 $token = ExamplesDatas::getRandomId();
 

@@ -3,7 +3,6 @@ namespace LemonWay\Examples;
 use LemonWay\Models\Wallet;
 use LemonWay\Models\Card;
 
-require_once '../LemonWay/Autoloader.php';
 require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 

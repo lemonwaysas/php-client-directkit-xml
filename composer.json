@@ -3,7 +3,7 @@
   "description": "PHP SDK for Lemon Way API",
   "type": "library",
   "keywords": ["Lemon Way","LemonWay","wallet","payment","marketplace"],
-  "homepage": "https://bitbucket.org/usul_/lemonway-php-sdk",
+  "homepage": "https://github.com/lemonwaysas/php-client-directkit-xml",
   "minimum-stability": "stable",
   "license": "MIT",
   "require": {

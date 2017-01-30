@@ -4,7 +4,6 @@ use LemonWay\Models\Card;
 use LemonWay\Models\Operation;
 use LemonWay\Models\Wallet;
 
-require_once '../LemonWay/Autoloader.php';
 require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
@@ -14,7 +13,6 @@ $api = ExamplesBootstrap::getApiInstance();
  *          - RegisterWallet : creating customer wallet
  *          - MoneyIn : debiting 10 EUR from card, and automatically sending 2 EUR to your wallet (merchant) WITH ATOS PRE AUTH
  *          - MoneyInValidate : validate MoneyIn
-
  */
 
 $walletID = ExamplesDatas::getRandomId();

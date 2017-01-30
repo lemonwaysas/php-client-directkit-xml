@@ -3,7 +3,6 @@
 namespace LemonWay\Examples\SigninDocument;
 use LemonWay\Models\KycDoc;
 
-require_once '../../LemonWay/Autoloader.php';
 
 /**
  * This page handles the signing document workflow :
