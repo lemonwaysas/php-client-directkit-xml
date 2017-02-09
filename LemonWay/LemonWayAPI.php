@@ -827,14 +827,11 @@ class LemonWayAPI
         $xml_soap = '<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body><' . $methodName . ' xmlns="' . $xmlns . '">';
 
         foreach ($params as $key => $value) {
-            $value = str_replace('&', htmlentities('&'), $value);
-            $value = str_replace('<', htmlentities('<'), $value);
-            $value = str_replace('>', htmlentities('>'), $value);
-            $xml_soap .= '<' . $key . '>' . $value . '</' . $key . '>';
+            $xml_soap .= '<' . $key . '>' . $this->cleanRequest($value) . '</' . $key . '>';
         }
         $xml_soap .= '<version>' . $version . '</version>';
-        $xml_soap .= '<wlPass>' . $this->config->wlPass . '</wlPass>';
-        $xml_soap .= '<wlLogin>' . $this->config->wlLogin . '</wlLogin>';
+        $xml_soap .= '<wlPass>' . $this->cleanRequest($this->config->wlPass) . '</wlPass>';
+        $xml_soap .= '<wlLogin>' . $this->cleanRequest($this->config->wlLogin) . '</wlLogin>';
         $xml_soap .= '<language>' . $this->config->lang . '</language>';
         $xml_soap .= '<walletIp>' . $ip . '</walletIp>';
         $xml_soap .= '<walletUa>' . $ua . '</walletUa>';
@@ -855,7 +852,6 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_ANY);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $xml_soap);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->config->sslVerification);
@@ -954,6 +950,15 @@ class LemonWayAPI
                     break;
             }
         }
+    }
+
+    private function cleanRequest($str)
+    {
+        $str = str_replace('&', htmlentities('&'), $str);
+        $str = str_replace('<', htmlentities('<'), $str);
+        $str = str_replace('>', htmlentities('>'), $str);
+
+        return $str;
     }
 }
 
