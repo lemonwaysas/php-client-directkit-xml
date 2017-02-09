@@ -746,6 +746,18 @@ class LemonWayAPI
         return $this->sendRequest('GetWizypayAds', $params, '1.0');
     }
 
+    public function CreateLoginBo($params)
+    {
+        return $this->sendRequest('CreateLoginBo', $params, '1.0');
+
+    }
+
+    public function UpdateLoginBo($params)
+    {
+        return $this->sendRequest('UpdateLoginBo', $params, '1.0');
+
+    }
+
     /**
      * Print Direct API Output
      *
