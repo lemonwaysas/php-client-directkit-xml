@@ -5,7 +5,7 @@
 
 This example demonstrates the third method.
 
-Lemon Way PHP SDK
+Lemon Way PHP SDK (This SDK is only used with Direckit XML)
 =================================================
 Lemon Way SDK is a PHP client library to work with
 [Lemon Way API](http://documentation.lemonway.fr/api-en).
