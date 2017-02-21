@@ -167,3 +167,4 @@ There's two files that handles the examples configuration:
 [SoapClient SDK]: https://github.com/lemonwaysas/php-client-directkit-xml-soap-sdk
 [LemonWay SDK]: https://github.com/lemonwaysas/php-client-directkit-xml
 [Lemonway Directkit API]: http://documentation.lemonway.fr/
+[`curl_init`]: http://php.net/manual/en/function.curl-init.php
