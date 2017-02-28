@@ -11,9 +11,9 @@ If you don't like the json format, you can also send SOAP (XML) requests to Dire
 
  1. **[SoapClient]**: the casual method in PHP to consume any Web Service. It is the simplest way to access to Directkit**Xml**.
  2. **[SoapClient SDK]**: same with the first method, but all the structure of requests / responses are generated overhead with [`wsdl2phpgenerator`](http://wsdl2phpgenerator.github.io/wsdl2phpgenerator/)
- 3. **[LemonWay SDK]**: call the web service as a normal http request [`curl_init`]. The SDK will help you to parse the SOAP response.
+ 3. **[LemonWay SDK]**: call the web service as a normal http request [`curl_init`]. The SDK will help you to parse the SOAP response. This method doesn't have any advantages over other ones.
 
-This example demonstrates the third method which doesn't have any advantages over other ones.
+This example demonstrates the third method.
 
 Lemon Way PHP SDK (This SDK is only used with Direckit XML)
 =================================================
