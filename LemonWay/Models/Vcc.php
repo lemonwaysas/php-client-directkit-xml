@@ -28,7 +28,7 @@ class Vcc
     public $CVX;
 
 
-    function __construct($vcc)
+    public function __construct($vcc)
     {
         $this->ID = $vcc->ID;
         $this->NUM = $vcc->NUM;

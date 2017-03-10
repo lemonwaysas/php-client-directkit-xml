@@ -145,7 +145,7 @@ class Operation
      */
     public $VCC;
 
-    function __construct($hpayXml)
+    public function __construct($hpayXml)
     {
         $this->ID = $hpayXml->ID;
         $this->SEN = $hpayXml->SEN;

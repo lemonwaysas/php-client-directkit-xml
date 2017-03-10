@@ -89,7 +89,7 @@ class Wallet
     public $cards;
 
 
-    function __construct($WALLET)
+    public function __construct($WALLET)
     {
         $this->ID = $WALLET->ID;
         $this->LWID = $WALLET->LWID;

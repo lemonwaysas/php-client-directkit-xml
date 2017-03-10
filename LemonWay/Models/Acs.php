@@ -46,7 +46,7 @@ class Acs
     public $mdFieldValue;
 
 
-    function __construct($acs)
+    public function __construct($acs)
     {
         $this->actionMethod = $acs->actionMethod;
         $this->actionUrl = $acs->actionUrl;

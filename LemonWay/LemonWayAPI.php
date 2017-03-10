@@ -20,8 +20,15 @@ class LemonWayAPI
     /**
      * LemonWayKit constructor.
      */
-    public function __construct($directKitUrl = '', $webKitUrl = '', $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
-    {
+    public function __construct(
+        $directKitUrl = '',
+        $webKitUrl = '',
+        $login = '',
+        $password = '',
+        $lang = 'en',
+        $debug = false,
+        $sslVerification = true
+    ) {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
         $this->config->wkUrl = $webKitUrl;

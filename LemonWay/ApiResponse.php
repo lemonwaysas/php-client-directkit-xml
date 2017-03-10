@@ -13,7 +13,7 @@ use LemonWay\Models\IDeal;
 
 class ApiResponse
 {
-    function __construct($xmlResponse)
+    public function __construct($xmlResponse)
     {
         $this->lwXml = $xmlResponse;
         if (isset($xmlResponse->E)) {

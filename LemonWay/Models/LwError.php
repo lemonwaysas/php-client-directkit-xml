@@ -16,7 +16,7 @@ class LwError
      */
     public $MSG;
 
-    function __construct($code, $msg)
+    public function __construct($code, $msg)
     {
         $this->CODE = $code;
         $this->MSG = $msg;

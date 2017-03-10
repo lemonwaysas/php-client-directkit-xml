@@ -40,7 +40,7 @@ class Extra
     public $TYPE;
 
 
-    function __construct($extraXml)
+    public function __construct($extraXml)
     {
         $this->AUTH = $extraXml->AUTH;
         $this->IS3DS = $extraXml->IS3DS;

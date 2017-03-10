@@ -20,7 +20,7 @@ class Card
      */
     public $EXTRA;
 
-    function __construct($node)
+    public function __construct($node)
     {
         $this->ID = $node->ID;
         if (isset($node->EXTRA)) {

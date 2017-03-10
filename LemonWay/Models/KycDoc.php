@@ -68,7 +68,7 @@ class KycDoc
      */
     public $COMMENT;
 
-    function __construct($node)
+    public function __construct($node)
     {
         $this->ID = $node->ID;
         $this->STATUS = $node->S;
