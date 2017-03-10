@@ -1,6 +1,8 @@
 <?php
 namespace LemonWay\Models;
-class Extra {
+
+class Extra
+{
     /**
      * IS3DS indicates if payment was 3D Secure
      * @var bool
@@ -38,7 +40,8 @@ class Extra {
     public $TYPE;
 
 
-    function __construct($extraXml) {
+    function __construct($extraXml)
+    {
         $this->AUTH = $extraXml->AUTH;
         $this->IS3DS = $extraXml->IS3DS;
         $this->CTRY = $extraXml->CTRY;

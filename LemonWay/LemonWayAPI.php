@@ -20,7 +20,7 @@ class LemonWayAPI
     /**
      * LemonWayKit constructor.
      */
-    public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
+    public function __construct($directKitUrl = '', $webKitUrl = '', $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
     {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
@@ -473,7 +473,6 @@ class LemonWayAPI
         }
 
         return $res;
-
     }
 
     /**
@@ -523,7 +522,6 @@ class LemonWayAPI
             $res->operation = new Models\Operation($res->lwXml->TRANS->HPAY);
         }
         return $res;
-
     }
 
     /**
@@ -749,13 +747,11 @@ class LemonWayAPI
     public function CreateLoginBo($params)
     {
         return $this->sendRequest('CreateLoginBo', $params, '1.0');
-
     }
 
     public function UpdateLoginBo($params)
     {
         return $this->sendRequest('UpdateLoginBo', $params, '1.0');
-
     }
 
     /**
@@ -818,9 +814,9 @@ class LemonWayAPI
         $xmlns = 'Service_mb_xml';
         
         $ua = '';
-        if(isset($_SERVER['HTTP_USER_AGENT'])) {
+        if (isset($_SERVER['HTTP_USER_AGENT'])) {
             $ua = $_SERVER['HTTP_USER_AGENT'];
-        } elseif($this->config->user_agent) {
+        } elseif ($this->config->user_agent) {
             $ua = $this->config->user_agent;
         }
         
@@ -832,7 +828,7 @@ class LemonWayAPI
             $ip = trim($tmpip[0]);
         } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
             $ip = $_SERVER['REMOTE_ADDR'];
-        } elseif($this->config->remote_addr){
+        } elseif ($this->config->remote_addr) {
             $ip = $this->config->remote_addr;
         }
 
@@ -886,7 +882,7 @@ class LemonWayAPI
                     $xml = new \SimpleXMLElement($response);
                     //Retrieve result
                     $content = '';
-                    switch($methodName){
+                    switch ($methodName) {
                         case 'UnregisterSddMandate':
                             $content = $xml->{$methodName . 'Response'}->{'UnRegisterSddMandateResult'};
                             break;
@@ -973,5 +969,3 @@ class LemonWayAPI
         return $str;
     }
 }
-
-?>

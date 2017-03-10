@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay;
+
 use LemonWay\Models\Acs;
 use LemonWay\Models\Operation;
 use LemonWay\Models\Wallet;
@@ -10,29 +11,30 @@ use LemonWay\Models\Card;
 use LemonWay\Models\Vcc;
 use LemonWay\Models\IDeal;
 
-
-class ApiResponse{
-	function __construct($xmlResponse) {
+class ApiResponse
+{
+    function __construct($xmlResponse)
+    {
         $this->lwXml = $xmlResponse;
-		if (isset($xmlResponse->E)){
-			$this->lwError = new Models\LwError($xmlResponse->E->Code, $xmlResponse->E->Msg .
+        if (isset($xmlResponse->E)) {
+            $this->lwError = new Models\LwError($xmlResponse->E->Code, $xmlResponse->E->Msg .
              " (" . $xmlResponse->E->Error . ")");
-		}
+        }
     }
-	
-	/**
+    
+    /**
      * lwXml
      * @var SimpleXMLElement
      */
     public $lwXml;
-	
-	/**
+    
+    /**
      * lwError
      * @var LwError
      */
     public $lwError;
-	
-	/**
+    
+    /**
      * wallet
      * @var Wallet
      */
@@ -43,8 +45,8 @@ class ApiResponse{
      * @var array Wallet
      */
     public $wallets;
-	
-	/**
+    
+    /**
      * operations
      * @var array Operation
      */
@@ -55,20 +57,20 @@ class ApiResponse{
      * @var Operation
      */
     public $operation;
-	
-	/**
+    
+    /**
      * kycDoc
      * @var KycDoc
      */
     public $kycDoc;
-	
-	/**
+    
+    /**
      * iban
      * @var Iban
      */
     public $iban;
-	
-	/**
+    
+    /**
      * sddMandate
      * @var SddMandate
      */
@@ -98,5 +100,3 @@ class ApiResponse{
      */
     public $ideal;
 }
-
-?>

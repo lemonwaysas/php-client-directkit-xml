@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
@@ -24,9 +25,9 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::MISTER,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError))
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
-else {
+} else {
     print '<br/>Wallet created : ' . $res->wallet->ID;
 
     //MoneyIn Neosurf
@@ -37,7 +38,7 @@ else {
         'idTicket' => $ticketNeoSurf,
         'isNeocode' => '0',
         'wkToken' => ExamplesDatas::getRandomId()));
-    if (isset($res2->lwError)){
+    if (isset($res2->lwError)) {
         print '<br />Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
         return;
     }

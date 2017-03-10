@@ -1,9 +1,12 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\LemonWayAPI;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once 'ExamplesDatas.php';
-class ExamplesBootstrap{
+class ExamplesBootstrap
+{
 
 
     /**
@@ -70,7 +73,8 @@ class ExamplesBootstrap{
      * Build the API if needed
      * @return LemonWayAPI
      */
-    public static function getApiInstance(){
+    public static function getApiInstance()
+    {
         if (self::$api == null) {
             self::$api = new LemonWayAPI();
 
@@ -84,5 +88,4 @@ class ExamplesBootstrap{
         }
         return self::$api;
     }
-
 }

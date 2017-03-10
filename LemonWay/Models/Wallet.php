@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Models;
+
 class Wallet
 {
 
@@ -98,27 +99,28 @@ class Wallet
         $this->EMAIL = $WALLET->EMAIL;
         $this->BLOCKED = $WALLET->BLOCKED;
         $this->kycDocs = array();
-        if (isset($WALLET->DOCS))
+        if (isset($WALLET->DOCS)) {
             foreach ($WALLET->DOCS->DOC as $DOC) {
                 $this->kycDocs[] = new KycDoc($DOC);
             }
+        }
         $this->ibans = array();
-        if (isset($WALLET->IBANS))
+        if (isset($WALLET->IBANS)) {
             foreach ($WALLET->IBANS->IBAN as $IBAN) {
                 $this->ibans[] = new Iban($IBAN);
             }
+        }
         $this->sddMandates = array();
-        if (isset($WALLET->SDDMANDATES))
+        if (isset($WALLET->SDDMANDATES)) {
             foreach ($WALLET->SDDMANDATES->SDDMANDATE as $SDDMANDATE) {
                 $this->sddMandates[] = new SddMandate($SDDMANDATE);
             }
+        }
         $this->cards = array();
-        if (isset($WALLET->CARDS))
+        if (isset($WALLET->CARDS)) {
             foreach ($WALLET->CARDS->CARD as $CARD) {
                 $this->cards[] = new Card($CARD);
             }
+        }
     }
-
 }
-
-?>

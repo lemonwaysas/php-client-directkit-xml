@@ -1,6 +1,8 @@
 <?php
 namespace LemonWay\Models;
-class Vcc {
+
+class Vcc
+{
     /**
      * ID
      * @var string
@@ -26,7 +28,8 @@ class Vcc {
     public $CVX;
 
 
-    function __construct($vcc) {
+    function __construct($vcc)
+    {
         $this->ID = $vcc->ID;
         $this->NUM = $vcc->NUM;
         $this->EDATE = $vcc->EDATE;

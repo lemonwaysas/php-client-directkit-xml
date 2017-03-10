@@ -1,6 +1,8 @@
 <?php
 namespace LemonWay\Models;
-class Acs {
+
+class Acs
+{
     /**
      * actionUrl Redirect URL for the CLIENT on the 3D Secure web site
      * @var string
@@ -44,7 +46,8 @@ class Acs {
     public $mdFieldValue;
 
 
-    function __construct($acs) {
+    function __construct($acs)
+    {
         $this->actionMethod = $acs->actionMethod;
         $this->actionUrl = $acs->actionUrl;
         $this->mdFieldName = $acs->mdFieldName;

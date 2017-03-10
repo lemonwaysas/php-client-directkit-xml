@@ -1,6 +1,8 @@
 <?php
 namespace LemonWay\Models;
-class IDeal{
+
+class IDeal
+{
     const ISSUER_RABOBANK = '21';
     const ISSUER_ABN_AMRO = '31';
     const ISSUER_ING = '721';
@@ -12,5 +14,4 @@ class IDeal{
     const ISSUER_KNAB_BANK = '801';
 
     const ISSUER_TEST_BANK = '121';
-
 }

@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
