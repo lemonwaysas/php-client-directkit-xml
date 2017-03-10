@@ -812,14 +812,14 @@ class LemonWayAPI
     private function sendRequest($methodName, $params, $version)
     {
         $xmlns = 'Service_mb_xml';
-        
+
         $ua = '';
         if (isset($_SERVER['HTTP_USER_AGENT'])) {
             $ua = $_SERVER['HTTP_USER_AGENT'];
         } elseif ($this->config->user_agent) {
             $ua = $this->config->user_agent;
         }
-        
+
         $ip = '';
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -894,7 +894,7 @@ class LemonWayAPI
                         case 'GetChargebacks':
                             $content = $xml->{$methodName.'Response'}->{'GetChargeBacksResult'};
                             break;
-                        
+
                         default:
                             $content = $xml->{$methodName . 'Response'}->{$methodName . 'Result'};
                             break;
@@ -938,7 +938,7 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->config->sslVerification);
-        
+
         $server_output = curl_exec($ch);
         if (curl_errno($ch)) {
             error_log('curl_err : ' . curl_error($ch));

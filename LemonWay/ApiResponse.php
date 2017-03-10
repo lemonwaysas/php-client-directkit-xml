@@ -21,19 +21,19 @@ class ApiResponse
              " (" . $xmlResponse->E->Error . ")");
         }
     }
-    
+
     /**
      * lwXml
      * @var SimpleXMLElement
      */
     public $lwXml;
-    
+
     /**
      * lwError
      * @var LwError
      */
     public $lwError;
-    
+
     /**
      * wallet
      * @var Wallet
@@ -45,7 +45,7 @@ class ApiResponse
      * @var array Wallet
      */
     public $wallets;
-    
+
     /**
      * operations
      * @var array Operation
@@ -57,19 +57,19 @@ class ApiResponse
      * @var Operation
      */
     public $operation;
-    
+
     /**
      * kycDoc
      * @var KycDoc
      */
     public $kycDoc;
-    
+
     /**
      * iban
      * @var Iban
      */
     public $iban;
-    
+
     /**
      * sddMandate
      * @var SddMandate

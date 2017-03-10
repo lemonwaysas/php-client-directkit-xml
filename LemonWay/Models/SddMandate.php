@@ -17,25 +17,25 @@ class SddMandate
      * @var string
      */
     public $ID;
-    
+
     /**
      * STATUS {0,5}
      * @var string
      */
     public $STATUS;
-    
+
     /**
      * IBAN number
      * @var string
      */
     public $IBAN;
-    
+
     /**
      * BIC or swift code
      * @var string
      */
     public $BIC;
-    
+
     function __construct($node)
     {
         $this->ID = $node->ID;

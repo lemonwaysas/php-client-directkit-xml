@@ -37,19 +37,19 @@ class KycDoc
      * @var string
      */
     public $ID;
-    
+
     /**
      * STATUS {1,2,3,4,5}
      * @var string
      */
     public $STATUS;
-    
+
     /**
      * TYPE {0,1,2,3,4,5,6,7,11,12,13,14,15,16,17,18,19,20,21}
      * @var string
      */
     public $TYPE;
-    
+
     /**
      * VD validity date
      * @var string
@@ -67,7 +67,7 @@ class KycDoc
      * @var string
      */
     public $COMMENT;
-    
+
     function __construct($node)
     {
         $this->ID = $node->ID;

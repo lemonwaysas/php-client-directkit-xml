@@ -13,13 +13,13 @@ class Card
      * @var string
      */
     public $ID;
-    
+
     /**
      * EXTRA
      * @var Extra
      */
     public $EXTRA;
-    
+
     function __construct($node)
     {
         $this->ID = $node->ID;
