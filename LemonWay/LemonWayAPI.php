@@ -12,12 +12,6 @@ class LemonWayAPI
     public $config;
 
     /**
-     * Used for Debug mode
-     * @var boolean
-     */
-    private $printInputAndOutputXml = false;
-
-    /**
      * LemonWayKit constructor.
      */
     public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
