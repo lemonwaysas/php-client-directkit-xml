@@ -1,14 +1,14 @@
 <?php
 namespace LemonWay\Models;
 class KycDoc {
-
+	const STATUS_ON_HOLD = '0';
 	const STATUS_RECEIVED = '1';
 	const STATUS_CHECKED_VALIDATED = '2';
 	const STATUS_CHECKED_NOT_VALIDATED = '3';
 	const STATUS_REPLACED = '4';
 	const STATUS_EXPIRED = '5';
 	const STATUS_WRONG_TYPE = '6';
-	const STATUS_WRONG_NAME = '6';
+	const STATUS_WRONG_NAME = '7';
 
 	const TYPE_ID_CARD = '0';
 	const TYPE_PROOF_OF_ADDRESS = '1';
