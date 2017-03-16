@@ -8,7 +8,7 @@ class KycDoc {
 	const STATUS_REPLACED = '4';
 	const STATUS_EXPIRED = '5';
 	const STATUS_WRONG_TYPE = '6';
-	const STATUS_WRONG_NAME = '6';
+	const STATUS_WRONG_NAME = '7';
 
 	const TYPE_ID_CARD = '0';
 	const TYPE_PROOF_OF_ADDRESS = '1';
