@@ -309,7 +309,7 @@ class LemonWayAPI
      */
     public function GetMoneyInTransDetails($params)
     {
-        $res = $this->sendRequest('GetMoneyInTransDetails', $params, '1.6');
+        $res = $this->sendRequest('GetMoneyInTransDetails', $params, '10.0');
         if (!isset($res->lwError)) {
             $res->operations = array();
             foreach ($res->lwXml->TRANS->HPAY as $HPAY) {
@@ -749,13 +749,11 @@ class LemonWayAPI
     public function CreateLoginBo($params)
     {
         return $this->sendRequest('CreateLoginBo', $params, '1.0');
-
     }
 
     public function UpdateLoginBo($params)
     {
         return $this->sendRequest('UpdateLoginBo', $params, '1.0');
-
     }
 
     /**
