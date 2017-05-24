@@ -35,7 +35,7 @@ class Extra {
      * TYPE
      * @var string
      */
-    public $TYPE;
+    public $TYP;
 
 
     function __construct($extraXml) {
@@ -44,6 +44,6 @@ class Extra {
         $this->CTRY = $extraXml->CTRY;
         $this->NUM = $extraXml->NUM;
         $this->EXP = $extraXml->EXP;
-        $this->TYPE = $extraXml->TYPE;
+        $this->TYP = $extraXml->TYP;
     }
 }
