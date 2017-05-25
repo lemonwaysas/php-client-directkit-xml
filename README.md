@@ -1,20 +1,21 @@
 The LemonWay API (called Directkit) has two implementations: Directkit**Json2** and Directkit**Xml**. 
 There are different ways to call the service depends on the implementation you chose.
 
-The best way to access to directkit**Json2** is to use the [`curl_init`] function to send POST request to the Directkit**Json2** service. 
+**We recommend our new partners to use DirectkitJson2** 
 
 [See the example here](https://github.com/lemonwaysas/php-client-directkit-json2)
 
-It is the simplest (for you) and the most network-efficient way. So we recommend Json over the SOAP (XML) protocole.
- 
-If you don't like the json format, you can also send SOAP (XML) requests to Directkit**Xml**, you can do it in 3 different ways:
+It is more network-efficient, and make your codes simpler (you don't need to integrate any third-party codes like this one)
+
+Anyway, if you don't like the json format, you can also send SOAP (XML) requests to the Directkit**Xml**. You can do it in 3 different ways:
 
  1. **[SoapClient]**: the casual method in PHP to consume any Web Service. It is the simplest way to access to Directkit**Xml**.
  2. **[SoapClient SDK]**: same with the first method, but all the structure of requests / responses are generated overhead with [`wsdl2phpgenerator`](http://wsdl2phpgenerator.github.io/wsdl2phpgenerator/)
  3. **[LemonWay SDK]**: call the web service as a normal http request [`curl_init`]. The SDK will help you to parse the SOAP response.
 
-This example demonstrates the third method. It doesn't really have any advantages over other ones. It is just less verbose than **[SoapClient]**. [see an opinionated comparisons](https://github.com/lemonwaysas/php-client-directkit-xml/commit/4e083a104a402c041d341bfbba9afa6aaeb02225)
+We recommend the first method with **[SoapClient]** because it is the standard solution in PHP world. 
 
+This example demonstrates the third method. It doesn't really have any advantages over other ones (see [an opinionated comparisons here](https://github.com/lemonwaysas/php-client-directkit-xml/commit/4e083a104a402c041d341bfbba9afa6aaeb02225)). Anyway we will maintain the **[LemonWay SDK]** for old customers.
 
 Lemon Way PHP SDK (This SDK is only used with Direckit XML)
 =================================================
