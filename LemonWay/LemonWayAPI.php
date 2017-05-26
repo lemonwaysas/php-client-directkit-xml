@@ -20,8 +20,15 @@ class LemonWayAPI
     /**
      * LemonWayKit constructor.
      */
-    public function __construct($directKitUrl = '', $webKitUrl = '',  $login = '', $password = '', $lang = 'en', $debug = false, $sslVerification = true)
-    {
+    public function __construct(
+        $directKitUrl = '',
+        $webKitUrl = '',
+        $login = '',
+        $password = '',
+        $lang = 'en',
+        $debug = false,
+        $sslVerification = true
+    ) {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
         $this->config->wkUrl = $webKitUrl;
@@ -39,7 +46,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RegisterWallet($params)
+    public function registerWallet($params)
     {
         $res = $this->sendRequest('RegisterWallet', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -56,7 +63,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyIn($params)
+    public function moneyIn($params)
     {
         $res = $this->sendRequest('MoneyIn', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -73,7 +80,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function UpdateWalletDetails($params)
+    public function updateWalletDetails($params)
     {
         $res = $this->sendRequest('UpdateWalletDetails', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -90,7 +97,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetWalletDetails($params)
+    public function getWalletDetails($params)
     {
         $res = $this->sendRequest('GetWalletDetails', $params, '1.8');
         if (!isset($res->lwError)) {
@@ -107,7 +114,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyIn3DInit($params)
+    public function moneyIn3DInit($params)
     {
         $res = $this->sendRequest('MoneyIn3DInit', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -125,7 +132,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyIn3DConfirm($params)
+    public function moneyIn3DConfirm($params)
     {
         $res = $this->sendRequest('MoneyIn3DConfirm', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -141,7 +148,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInWebInit($params)
+    public function moneyInWebInit($params)
     {
         return $this->sendRequest('MoneyInWebInit', $params, '1.3');
     }
@@ -153,7 +160,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RegisterCard($params)
+    public function registerCard($params)
     {
         $res = $this->sendRequest('RegisterCard', $params, '1.2');
         if (!isset($res->lwError)) {
@@ -169,7 +176,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function UnregisterCard($params)
+    public function unregisterCard($params)
     {
         $res = $this->sendRequest('UnregisterCard', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -185,7 +192,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInWithCardId($params)
+    public function moneyInWithCardId($params)
     {
         $res = $this->sendRequest('MoneyInWithCardId', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -202,7 +209,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInValidate($params)
+    public function moneyInValidate($params)
     {
         $res = $this->sendRequest('MoneyInValidate', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -219,7 +226,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function SendPayment($params)
+    public function sendPayment($params)
     {
         $res = $this->sendRequest('SendPayment', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -236,7 +243,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RegisterIBAN($params)
+    public function registerIBAN($params)
     {
         $res = $this->sendRequest('RegisterIBAN', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -253,7 +260,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RegisterIBANExtended($params)
+    public function registerIBANExtended($params)
     {
         $res = $this->sendRequest('RegisterIBANExtended', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -270,7 +277,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyOut($params)
+    public function moneyOut($params)
     {
         $res = $this->sendRequest('MoneyOut', $params, '1.3');
         if (!isset($res->lwError)) {
@@ -287,7 +294,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetPaymentDetails($params)
+    public function getPaymentDetails($params)
     {
         $res = $this->sendRequest('GetPaymentDetails', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -307,7 +314,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetMoneyInTransDetails($params)
+    public function getMoneyInTransDetails($params)
     {
         $res = $this->sendRequest('GetMoneyInTransDetails', $params, '10.0');
         if (!isset($res->lwError)) {
@@ -327,7 +334,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetMoneyOutTransDetails($params)
+    public function getMoneyOutTransDetails($params)
     {
         $res = $this->sendRequest('GetMoneyOutTransDetails', $params, '1.4');
         if (!isset($res->lwError)) {
@@ -347,7 +354,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function UploadFile($params)
+    public function uploadFile($params)
     {
         $res = $this->sendRequest('UploadFile', $params, '1.1');
         if (!isset($res->lwError)) {
@@ -364,7 +371,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetKycStatus($params)
+    public function getKycStatus($params)
     {
         $res = $this->sendRequest('GetKycStatus', $params, '1.5');
         if (!isset($res->lwError)) {
@@ -384,7 +391,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetMoneyInIBANDetails($params)
+    public function getMoneyInIBANDetails($params)
     {
         $res = $this->sendRequest('GetMoneyInIBANDetails', $params, '1.4');
         if (!isset($res->lwError)) {
@@ -404,7 +411,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RefundMoneyIn($params)
+    public function refundMoneyIn($params)
     {
         $res = $this->sendRequest('RefundMoneyIn', $params, '1.2');
         if (!isset($res->lwError)) {
@@ -421,7 +428,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetBalances($params)
+    public function getBalances($params)
     {
         $res = $this->sendRequest('GetBalances', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -441,7 +448,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyIn3DAuthenticate($params)
+    public function moneyIn3DAuthenticate($params)
     {
         return $this->sendRequest('MoneyIn3DAuthenticate', $params, '1.0');
     }
@@ -453,7 +460,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInIDealInit($params)
+    public function moneyInIDealInit($params)
     {
         return $this->sendRequest('MoneyInIDealInit', $params, '1.0');
     }
@@ -465,7 +472,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInIDealConfirm($params)
+    public function moneyInIDealConfirm($params)
     {
         $res = $this->sendRequest('MoneyInIDealConfirm', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -473,7 +480,6 @@ class LemonWayAPI
         }
 
         return $res;
-
     }
 
     /**
@@ -483,7 +489,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function RegisterSddMandate($params)
+    public function registerSddMandate($params)
     {
         $res = $this->sendRequest('RegisterSddMandate', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -500,7 +506,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function UnregisterSddMandate($params)
+    public function unregisterSddMandate($params)
     {
         $res = $this->sendRequest('UnregisterSddMandate', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -516,14 +522,13 @@ class LemonWayAPI
      * @param array     $params
      * @return ApiResponse
      */
-    public function MoneyInSddInit($params)
+    public function moneyInSddInit($params)
     {
         $res = $this->sendRequest('MoneyInSddInit', $params, '1.0');
         if (!isset($res->lwError)) {
             $res->operation = new Models\Operation($res->lwXml->TRANS->HPAY);
         }
         return $res;
-
     }
 
     /**
@@ -533,7 +538,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetMoneyInSdd($params)
+    public function getMoneyInSdd($params)
     {
         $res = $this->sendRequest('GetMoneyInSdd', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -552,7 +557,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetMoneyInChequeDetails($params)
+    public function getMoneyInChequeDetails($params)
     {
         $res = $this->sendRequest('GetMoneyInChequeDetails', $params, '1.9');
         if (!isset($res->lwError)) {
@@ -572,7 +577,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetWalletTransHistory($params)
+    public function getWalletTransHistory($params)
     {
         $res = $this->sendRequest('GetWalletTransHistory', $params, '2.0');
         if (!isset($res->lwError)) {
@@ -592,7 +597,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function UpdateWalletStatus($params)
+    public function updateWalletStatus($params)
     {
         $res = $this->sendRequest('UpdateWalletStatus', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -609,7 +614,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function SignDocumentInit($params)
+    public function signDocumentInit($params)
     {
         return $this->sendRequest('SignDocumentInit', $params, '1.0');
     }
@@ -621,7 +626,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInChequeInit($params)
+    public function moneyInChequeInit($params)
     {
         $res = $this->sendRequest('MoneyInChequeInit', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -638,7 +643,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInSofortInit($params)
+    public function moneyInSofortInit($params)
     {
         return $this->sendRequest('MoneyInSofortInit', $params, '1.0');
     }
@@ -650,7 +655,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function MoneyInNeosurf($params)
+    public function moneyInNeosurf($params)
     {
         $res = $this->sendRequest('MoneyInNeosurf', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -667,7 +672,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function CreatePaymentForm($params)
+    public function createPaymentForm($params)
     {
         return $this->sendRequest('CreatePaymentForm', $params, '1.0');
     }
@@ -679,7 +684,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function DisablePaymentForm($params)
+    public function disablePaymentForm($params)
     {
         return $this->sendRequest('DisablePaymentForm', $params, '1.0');
     }
@@ -691,7 +696,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetCompletedPaymentForm($params)
+    public function getCompletedPaymentForm($params)
     {
         return $this->sendRequest('GetCompletedPaymentForm', $params, '1.0');
     }
@@ -703,7 +708,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetChargebacks($params)
+    public function getChargebacks($params)
     {
         $res = $this->sendRequest('GetChargebacks', $params, '1.8');
         if (!isset($res->lwError)) {
@@ -724,7 +729,7 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function CreateVCC($params)
+    public function createVCC($params)
     {
         $res = $this->sendRequest('CreateVCC', $params, '1.0');
         if (!isset($res->lwError)) {
@@ -741,17 +746,17 @@ class LemonWayAPI
      *
      * @return ApiResponse
      */
-    public function GetWizypayAds($params)
+    public function getWizypayAds($params)
     {
         return $this->sendRequest('GetWizypayAds', $params, '1.0');
     }
 
-    public function CreateLoginBo($params)
+    public function createLoginBo($params)
     {
         return $this->sendRequest('CreateLoginBo', $params, '1.0');
     }
 
-    public function UpdateLoginBo($params)
+    public function updateLoginBo($params)
     {
         return $this->sendRequest('UpdateLoginBo', $params, '1.0');
     }
@@ -814,14 +819,14 @@ class LemonWayAPI
     private function sendRequest($methodName, $params, $version)
     {
         $xmlns = 'Service_mb_xml';
-        
+
         $ua = '';
-        if(isset($_SERVER['HTTP_USER_AGENT'])) {
+        if (isset($_SERVER['HTTP_USER_AGENT'])) {
             $ua = $_SERVER['HTTP_USER_AGENT'];
-        } elseif($this->config->user_agent) {
+        } elseif ($this->config->user_agent) {
             $ua = $this->config->user_agent;
         }
-        
+
         $ip = '';
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
             $ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -830,7 +835,7 @@ class LemonWayAPI
             $ip = trim($tmpip[0]);
         } elseif (!empty($_SERVER['REMOTE_ADDR'])) {
             $ip = $_SERVER['REMOTE_ADDR'];
-        } elseif($this->config->remote_addr){
+        } elseif ($this->config->remote_addr) {
             $ip = $this->config->remote_addr;
         }
 
@@ -884,7 +889,7 @@ class LemonWayAPI
                     $xml = new \SimpleXMLElement($response);
                     //Retrieve result
                     $content = '';
-                    switch($methodName){
+                    switch ($methodName) {
                         case 'UnregisterSddMandate':
                             $content = $xml->{$methodName . 'Response'}->{'UnRegisterSddMandateResult'};
                             break;
@@ -896,7 +901,7 @@ class LemonWayAPI
                         case 'GetChargebacks':
                             $content = $xml->{$methodName.'Response'}->{'GetChargeBacksResult'};
                             break;
-                        
+
                         default:
                             $content = $xml->{$methodName . 'Response'}->{$methodName . 'Result'};
                             break;
@@ -940,7 +945,7 @@ class LemonWayAPI
         curl_setopt($ch, CURLOPT_URL, $this->config->wkUrl . "?moneyintoken=" . $moneyInToken . '&p=' . urlencode($cssUrl) . '&lang=' . $language);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $this->config->sslVerification);
-        
+
         $server_output = curl_exec($ch);
         if (curl_errno($ch)) {
             error_log('curl_err : ' . curl_error($ch));
@@ -970,6 +975,22 @@ class LemonWayAPI
 
         return $str;
     }
-}
 
-?>
+    /**
+     * Allows us to call methods with first character in uppercase.
+     *
+     * @param  string $methodName
+     * @param  array $arguments
+     * @return mixed
+     */
+    public function __call($methodName, $arguments)
+    {
+        if (method_exists($this, lcfirst($methodName))) {
+            return call_user_func_array([$this, lcfirst($methodName)], $arguments);
+        }
+
+        $className = static::class;
+
+        throw new \BadMethodCallException("Call to undefined method {$className}::{$methodName}()");
+    }
+}

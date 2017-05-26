@@ -1,15 +1,16 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : UpdateWalletDetails
- *		Steps :
- *			- RegisterWallet : creating customer wallet
- *			- UpdateWalletDetails : update wallet information. In this example, we change the email and the address
+ *      Case : UpdateWalletDetails
+ *      Steps :
+ *          - RegisterWallet : creating customer wallet
+ *          - UpdateWalletDetails : update wallet information. In this example, we change the email and the address
  */
 
 //RegisterWallet
@@ -19,7 +20,7 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::MISTER,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }
@@ -35,7 +36,7 @@ $res2 = $api->UpdateWalletDetails(array('wallet'=>$walletID,
 
 echo '<pre>'.$res2->lwXml->__toString().'</pre>';
 
-if (isset($res2->lwError)){
+if (isset($res2->lwError)) {
     print 'Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
     return;
 }

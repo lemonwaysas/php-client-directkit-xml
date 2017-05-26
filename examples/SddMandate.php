@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\SddMandate;
 use LemonWay\Models\Wallet;
 use LemonWay\Models\Card;
@@ -8,12 +9,12 @@ require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : Get wallet details
- *		Steps :
- *			- RegisterWallet : creating customer wallet
- *			- RegisterSddMandate : attach an SDD mandate to the wallet
+ *      Case : Get wallet details
+ *      Steps :
+ *          - RegisterWallet : creating customer wallet
+ *          - RegisterSddMandate : attach an SDD mandate to the wallet
  *          - GetWalletDetails : get wallet details to check mandate
- *			- UnRegisterSddMandate : Detach an SDD mandate to the wallet
+ *          - UnRegisterSddMandate : Detach an SDD mandate to the wallet
  *          - GetWalletDetails : get wallet details to check mandate
  */
 
@@ -24,7 +25,7 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::UNKNOWN,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }
@@ -37,7 +38,7 @@ $res2 = $api->RegisterSddMandate(array('wallet'=>$walletID,
     'bic' => ExamplesDatas::IBAN_BIC,
     'iban' => ExamplesDatas::IBAN_NUMBER,
     'isRecurring' => SddMandate::RECURRING));
-if (isset($res2->lwError)){
+if (isset($res2->lwError)) {
     print '<br/>Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
     return;
 }
@@ -46,7 +47,7 @@ print '<br/>SDD mandate registration successful. Mandate ID : '. $res2->sddManda
 
 //GetWalletDetails
 $res5 = $api->GetWalletDetails(array('wallet'=>$walletID));
-if (isset($res5->lwError)){
+if (isset($res5->lwError)) {
     print '<br/>Error, code '.$res5->lwError->CODE.' : '.$res5->lwError->MSG;
     return;
 }
@@ -58,8 +59,7 @@ print '<br/>BALANCE : '.$res5->wallet->BAL;
 print '<br/>STATUS : '.$res5->wallet->STATUS;
 print '<br/>BLOCKED : '.($res5->wallet->BLOCKED == Wallet::WALLET_BLOCKED ? 'BLOCKED' : 'NOT BLOCKED' );
 
-foreach ($res5->wallet->sddMandates as $sddMandate)
-{
+foreach ($res5->wallet->sddMandates as $sddMandate) {
     print '<br/><br/>SDD Mandate found :';
     print '<br/>ID : '.$sddMandate->ID;
     print '<br/>STATUS : '.($sddMandate->STATUS == SddMandate::DEACTIVATED ? 'DEACTIVATED' : 'VALIDATED OR WAITING VALIDATION');
@@ -70,7 +70,7 @@ foreach ($res5->wallet->sddMandates as $sddMandate)
 //UnregisterSddMandante
 $resc = $api->UnregisterSddMandate(array('wallet'=>$walletID,
     'sddMandateId' => $res2->sddMandate->ID));
-if (isset($resc->lwError)){
+if (isset($resc->lwError)) {
     print 'Error, code '.$resc->lwError->CODE.' : '.$resc->lwError->MSG;
     return;
 }
@@ -79,7 +79,7 @@ print '<br/>SDD Mandate Status : '.$resc->sddMandate->STATUS;
 
 //GetWalletDetails
 $res5 = $api->GetWalletDetails(array('wallet'=>$walletID));
-if (isset($res5->lwError)){
+if (isset($res5->lwError)) {
     print '<br/>Error, code '.$res5->lwError->CODE.' : '.$res5->lwError->MSG;
     return;
 }
@@ -91,8 +91,7 @@ print '<br/>BALANCE : '.$res5->wallet->BAL;
 print '<br/>STATUS : '.$res5->wallet->STATUS;
 print '<br/>BLOCKED : '.($res5->wallet->BLOCKED == Wallet::WALLET_BLOCKED ? 'BLOCKED' : 'NOT BLOCKED' );
 
-foreach ($res5->wallet->sddMandates as $sddMandate)
-{
+foreach ($res5->wallet->sddMandates as $sddMandate) {
     print '<br/><br/>SDD Mandate found :';
     print '<br/>ID : '.$sddMandate->ID;
     print '<br/>STATUS : '.($sddMandate->STATUS == SddMandate::DEACTIVATED ? 'DEACTIVATED' : 'VALIDATED OR WAITING VALIDATION');

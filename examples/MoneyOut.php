@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Card;
 use LemonWay\Models\Wallet;
 
@@ -7,16 +8,16 @@ require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : Money-out : debit a wallet's balance to a bank account
- *		Steps :
- *			- RegisterWallet : creating a customer wallet
- *			- MoneyIn : debiting 10 EUR from card, and automatically sending 2 EUR to your merchant wallet
- *			- RegisterIBAN : save IBAN information for wallet
- *			- MoneyOut : debiting the 8 EUR remaining on the customer's wallet, and automatically sending 1 EUR to your merchant wallet. 7 EUR will be sent to the customer's bank account
- *		Note :
- *			- You can register many IBANs on the same wallet
- *			- When you call for a MoneyOut, you can either specify the destination IBAN's ID in ibanId parameter, or leave it empty. If left empty, the latest registered IBAN will be used
- *			- The "message" parameter in MoneyOut can be displayed on the customer's bank statement. Please contact support for more information
+ *      Case : Money-out : debit a wallet's balance to a bank account
+ *      Steps :
+ *          - RegisterWallet : creating a customer wallet
+ *          - MoneyIn : debiting 10 EUR from card, and automatically sending 2 EUR to your merchant wallet
+ *          - RegisterIBAN : save IBAN information for wallet
+ *          - MoneyOut : debiting the 8 EUR remaining on the customer's wallet, and automatically sending 1 EUR to your merchant wallet. 7 EUR will be sent to the customer's bank account
+ *      Note :
+ *          - You can register many IBANs on the same wallet
+ *          - When you call for a MoneyOut, you can either specify the destination IBAN's ID in ibanId parameter, or leave it empty. If left empty, the latest registered IBAN will be used
+ *          - The "message" parameter in MoneyOut can be displayed on the customer's bank statement. Please contact support for more information
  */
 
 //RegisterWallet
@@ -26,7 +27,7 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::MISTER,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print '<br/>Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }
@@ -44,7 +45,7 @@ $res2 = $api->MoneyIn(array('wkToken'=>ExamplesDatas::getRandomId(),
     'cardDate'=>ExamplesDatas::CARD_DATE,
     'autoCommission'=>Wallet::NO_AUTO_COMMISSION,
     'isPreAuth'=>Wallet::NO_ATOS_PRE_AUTH));
-if (isset($res2->lwError)){
+if (isset($res2->lwError)) {
     print '<br/>Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
     return;
 }
@@ -57,7 +58,7 @@ $res3 = $api->RegisterIBAN(array('wallet'=>$walletID,
     'iban' => ExamplesDatas::IBAN_NUMBER,
     'dom1' => ExamplesDatas::IBAN_AD1,
     'dom2' => ExamplesDatas::IBAN_AD2));
-if (isset($res3->lwError)){
+if (isset($res3->lwError)) {
     print '<br/>Error, code '.$res3->lwError->CODE.' : '.$res3->lwError->MSG;
     return;
 }
@@ -71,7 +72,7 @@ $res4 = $api->MoneyOut(array('wallet' => $walletID,
     'amountCom' => '1.00',
     'message' => '',
     'autoCommission' => Wallet::NO_AUTO_COMMISSION));
-if (isset($res4->lwError)){
+if (isset($res4->lwError)) {
     print '<br/>Error, code '.$res4->lwError->CODE.' : '.$res4->lwError->MSG;
     return;
 }
@@ -79,7 +80,7 @@ print '<br/>Money-out successful. ID: '. $res4->operation->ID;
 
 //GetMoneyOutTransDetails
 $res5 = $api->GetMoneyOutTransDetails(array('transactionId' => $res4->operation->ID));
-if (isset($res5->lwError)){
+if (isset($res5->lwError)) {
     print '<br/>Error, code '.$res5->lwError->CODE.' : '.$res5->lwError->MSG;
     return;
 }

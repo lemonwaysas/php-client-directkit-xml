@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\KycDoc;
 use LemonWay\Models\SddMandate;
 use LemonWay\Models\Wallet;
@@ -9,16 +10,16 @@ require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : Get wallet details
- *		Steps :
- *			- RegisterWallet : creating customer wallet
- *			- UploadFile : upload a file
- * 			- RegisterIBAN : attach an IBAN to the wallet
- * 			- RegisterCard : attach a card to the wallet
- *			- RegisterSddMandate : attach an SDD mandate to the wallet
- *			- GetWalletDetails : get wallet details, will return basic info plus KYC that was uploaded, IBANs and SDD mandates attached to it
+ *      Case : Get wallet details
+ *      Steps :
+ *          - RegisterWallet : creating customer wallet
+ *          - UploadFile : upload a file
+ *          - RegisterIBAN : attach an IBAN to the wallet
+ *          - RegisterCard : attach a card to the wallet
+ *          - RegisterSddMandate : attach an SDD mandate to the wallet
+ *          - GetWalletDetails : get wallet details, will return basic info plus KYC that was uploaded, IBANs and SDD mandates attached to it
  *          - UnregisterCard : delete a card
- * 			- GetWalletDetails : get wallet details, will return basic info plus KYC that was uploaded, IBANs and SDD mandates attached to it
+ *          - GetWalletDetails : get wallet details, will return basic info plus KYC that was uploaded, IBANs and SDD mandates attached to it
  */
 
 //RegisterWallet
@@ -28,7 +29,7 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::UNKNOWN,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }
@@ -42,7 +43,7 @@ $res2 = $api->UploadFile(array('wallet'=>$walletID,
     'type'=>KycDoc::TYPE_PROOF_OF_ADDRESS,
     'buffer'=>base64_encode($buffer)));
 
-if (isset($res2->lwError)){
+if (isset($res2->lwError)) {
     print '<br/>Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
     return;
 }
@@ -55,7 +56,7 @@ $res3 = $api->RegisterIBAN(array('wallet'=>$walletID,
     'iban' => ExamplesDatas::IBAN_NUMBER,
     'dom1' => ExamplesDatas::IBAN_AD1,
     'dom2' => ExamplesDatas::IBAN_AD2));
-if (isset($res3->lwError)){
+if (isset($res3->lwError)) {
     print '<br/>Error, code '.$res3->lwError->CODE.' : '.$res3->lwError->MSG;
     return;
 }
@@ -67,7 +68,7 @@ $res4 = $api->RegisterSddMandate(array('wallet'=>$walletID,
     'bic' => ExamplesDatas::IBAN_BIC,
     'iban' => ExamplesDatas::IBAN_NUMBER,
     'isRecurring' => SddMandate::RECURRING));
-if (isset($res4->lwError)){
+if (isset($res4->lwError)) {
     print '<br/>Error, code '.$res4->lwError->CODE.' : '.$res4->lwError->MSG;
     return;
 }
@@ -79,7 +80,7 @@ $resc = $api->RegisterCard(array('wallet'=>$walletID,
     'cardNumber'=>ExamplesDatas::CARD_SUCCESS_WITHOUT_3D,
     'cardCode'=>ExamplesDatas::CARD_CRYPTO,
     'cardDate'=>ExamplesDatas::CARD_DATE));
-if (isset($resc->lwError)){
+if (isset($resc->lwError)) {
     print 'Error, code '.$resc->lwError->CODE.' : '.$resc->lwError->MSG;
     return;
 }
@@ -89,7 +90,7 @@ print '<br/>Card EXTRA CTRY : '.$resc->card->EXTRA->CTRY;
 
 //GetWalletDetails
 $res5 = $api->GetWalletDetails(array('wallet'=>$walletID));
-if (isset($res5->lwError)){
+if (isset($res5->lwError)) {
     print '<br/>Error, code '.$res5->lwError->CODE.' : '.$res5->lwError->MSG;
     return;
 }
@@ -101,32 +102,28 @@ print '<br/>EMAIL : '.$res5->wallet->EMAIL;
 print '<br/>BALANCE : '.$res5->wallet->BAL;
 print '<br/>STATUS : '.$res5->wallet->STATUS;
 print '<br/>BLOCKED : '.($res5->wallet->BLOCKED == Wallet::WALLET_BLOCKED ? 'BLOCKED' : 'NOT BLOCKED' );
-foreach ($res5->wallet->kycDocs as $kycDoc)
-{
+foreach ($res5->wallet->kycDocs as $kycDoc) {
     print '<br/><br/>Kyc Document found :';
     print '<br/>ID : '.$kycDoc->ID;
     print '<br/>STATUS : '.$kycDoc->STATUS;
     print '<br/>TYPE : '.$kycDoc->TYPE;
     print '<br/>Validity limit : '.$kycDoc->VD;
 }
-foreach ($res5->wallet->ibans as $iban)
-{
+foreach ($res5->wallet->ibans as $iban) {
     print '<br/><br/>IBAN found :';
     print '<br/>ID : '.$iban->ID;
     print '<br/>STATUS : '.$iban->STATUS;
     print '<br/>IBAN NUMBER : '.$iban->IBAN;
     print '<br/>BIC : '.$iban->BIC;
 }
-foreach ($res5->wallet->sddMandates as $sddMandate)
-{
+foreach ($res5->wallet->sddMandates as $sddMandate) {
     print '<br/><br/>SDD Mandate found :';
     print '<br/>ID : '.$sddMandate->ID;
     print '<br/>STATUS : '.$sddMandate->STATUS;
     print '<br/>IBAN NUMBER : '.$sddMandate->IBAN;
     print '<br/>BIC : '.$sddMandate->BIC;
 }
-foreach ($res5->wallet->cards as $card)
-{
+foreach ($res5->wallet->cards as $card) {
     print '<br/><br/>Card found :';
     print '<br/>ID : '.$card->ID;
     print '<br/>EXTRA IS3DS : '.$card->EXTRA->IS3DS;
@@ -135,7 +132,7 @@ foreach ($res5->wallet->cards as $card)
 //UnRegisterCard
 $resun = $api->UnRegisterCard(array('wallet'=>$walletID,
     'cardId'=>$resc->card->ID));
-if (isset($resun->lwError)){
+if (isset($resun->lwError)) {
     print 'Error, code '.$resun->lwError->CODE.' : '.$resun->lwError->MSG;
     return;
 }
@@ -144,18 +141,17 @@ print '<hr/><br/>Card unregistered. ID : '.$resun->card->ID;
 
 //GetWalletDetails
 $res5 = $api->GetWalletDetails(array('wallet'=>$walletID));
-if (isset($res5->lwError)){
+if (isset($res5->lwError)) {
     print '<br/>Error, code '.$res5->lwError->CODE.' : '.$res5->lwError->MSG;
     return;
 }
 print '<hr/><br/>Wallet details found : ';
 print '<br/>ID : '.$res5->wallet->ID;
 print '<br/>EMAIL : '.$res5->wallet->EMAIL;
-if(count($res5->wallet->cards) == 0){
+if (count($res5->wallet->cards) == 0) {
     print '<br/>NO CARD FOUND IN THIS WALLET';
 }
-foreach ($res5->wallet->cards as $card)
-{
+foreach ($res5->wallet->cards as $card) {
     print '<br/><br/>Card found :';
     print '<br/>ID : '.$card->ID;
     print '<br/>EXTRA IS3DS : '.$card->EXTRA->IS3DS;
