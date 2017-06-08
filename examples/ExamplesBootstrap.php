@@ -26,9 +26,13 @@ class ExamplesBootstrap{
 
     /**
      * SSLVERIFICATION Used to tell whether it needs to verifiy SSL
+     * Only activate it if your PHP server know how to verify the certifcates.
+     * (You will have to configure the  the CURLOPT_CAINFO option or the CURLOPT_CAPATH option)
+     * https://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html
+     * https://stackoverflow.com/a/18972719/347051
      * @var string
      */
-    const SSLVERIFICATION = false; // true if in production
+    const SSLVERIFICATION = false;
 
     /**
      * CSS_URL Used to set API CSS url for LemonWayAPI::printCardForm
