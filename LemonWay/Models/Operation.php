@@ -143,6 +143,12 @@ class Operation {
 	 */
 	public $VCC;
 
+    /**
+     * ORIGIN_ID
+     * @var int
+     */
+    public $ORIGIN_ID;
+
 	function __construct($hpayXml) {
 		$this->ID = $hpayXml->ID;
 		$this->SEN = $hpayXml->SEN;
@@ -164,6 +170,7 @@ class Operation {
 		$this->SCHEDULED_DATE = $hpayXml->SCHEDULED_DATE;
 		$this->EXTRA = new Extra($hpayXml->EXTRA);
 		$this->VCC = new Vcc($hpayXml->VCC);
+        $this->ORIGIN_ID = $hpayXml->ORIGIN_ID;
 	}
 }
 
