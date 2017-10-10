@@ -1,7 +1,6 @@
 <?php
 namespace LemonWay\Lib;
 
-
 class LwException extends \Exception
 {
     const UNKNOWN_ERROR = 0;
@@ -15,8 +14,8 @@ class LwException extends \Exception
         parent::__construct($message, $code, $previous);
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
     }
-
 }

@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
@@ -22,9 +23,9 @@ $res = $api->RegisterWallet(array('wallet' => $walletID,
     'clientTitle' => Wallet::MISTER,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError))
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
-else {
+} else {
     print '<br/>Wallet created : ' . $res->wallet->ID;
 
     //MoneyIn Cheque Init
@@ -34,7 +35,7 @@ else {
         'comment' => 'comment',
         'autoCommission' => Wallet::NO_AUTO_COMMISSION,
         'transferId' => ''));
-    if (isset($res2->lwError)){
+    if (isset($res2->lwError)) {
         print 'Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
         return;
     }

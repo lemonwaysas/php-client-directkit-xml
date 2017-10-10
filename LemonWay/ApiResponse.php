@@ -13,15 +13,14 @@ use LemonWay\Models\Vcc;
 use LemonWay\Models\IDeal;
 use SimpleXMLElement;
 
-
 class ApiResponse
 {
-    function __construct($xmlResponse)
+    public function __construct($xmlResponse)
     {
         $this->lwXml = $xmlResponse;
         if (isset($xmlResponse->E)) {
             $this->lwError = new Models\LwError($xmlResponse->E->Code, $xmlResponse->E->Msg .
-            " (" . $xmlResponse->E->Error . ")");
+             " (" . $xmlResponse->E->Error . ")");
         }
     }
 

@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Lib;
+
 /**
  * API Config settings
  */
@@ -51,11 +52,11 @@ class Config
      * user_agent
      * @var string
      */
-	public $user_agent;
-	
-	/**
+    public $user_agent;
+    
+    /**
      * remote_addr
      * @var string
      */
-	public $remote_addr;
+    public $remote_addr;
 }
