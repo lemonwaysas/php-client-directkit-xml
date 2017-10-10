@@ -47,16 +47,22 @@ class Config
      * @var boolean
      */
     public $isDebugEnabled = false;
-    
+
     /**
      * user_agent
      * @var string
      */
     public $user_agent;
-    
+
     /**
      * remote_addr
      * @var string
      */
     public $remote_addr;
+
+    /**
+     * xmlns
+     * @var string
+     */
+    public $xmlns;
 }

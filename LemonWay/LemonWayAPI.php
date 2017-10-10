@@ -13,7 +13,7 @@ class LemonWayAPI
 
     /**
      * LemonWayKit constructor.
-     * 
+     *
      * @param string $directKitUrl
      * @param string $webKitUrl
      * @param string $login
@@ -21,6 +21,7 @@ class LemonWayAPI
      * @param string $lang
      * @param bool $debug
      * @param bool $sslVerification
+     * @param string $xmlns
      */
     public function __construct(
         $directKitUrl = '',
@@ -29,7 +30,8 @@ class LemonWayAPI
         $password = '',
         $lang = 'en',
         $debug = false,
-        $sslVerification = true
+        $sslVerification = true,
+        $xmlns = 'Service_mb_xml'
     ) {
         $this->config = new Lib\Config();
         $this->config->dkUrl = $directKitUrl;
@@ -39,6 +41,7 @@ class LemonWayAPI
         $this->config->wlPass = $password;
         $this->config->lang = $lang;
         $this->config->isDebugEnabled = $debug;
+        $this->config->xmlns = $xmlns;
     }
 
     /**
@@ -815,14 +818,14 @@ class LemonWayAPI
      * @param string $methodName
      * @param array $params
      * @param string $version
-     * 
+     *
      * @return ApiResponse
-     * 
+     *
      * @throws LwException
      */
     private function sendRequest($methodName, $params, $version)
     {
-        $xmlns = 'Service_mb_xml';
+        $xmlns = $this->config->xmlns;
 
         $ua = '';
         if (isset($_SERVER['HTTP_USER_AGENT'])) {
@@ -843,7 +846,11 @@ class LemonWayAPI
             $ip = $this->config->remote_addr;
         }
 
-        $xml_soap = '<?xml version="1.0" encoding="utf-8"?><soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope"><soap12:Body><' . $methodName . ' xmlns="' . $xmlns . '">';
+        $xml_soap = '<?xml version="1.0" encoding="utf-8"?>'
+            . '<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"'
+            . ' xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">'
+            . '<soap12:Body>'
+            . '<' . $methodName . ' xmlns="' . $xmlns . '">';
 
         foreach ($params as $key => $value) {
             $xml_soap .= '<' . $key . '>' . $this->cleanRequest($value) . '</' . $key . '>';
@@ -937,7 +944,7 @@ class LemonWayAPI
      * @param string $moneyInToken
      * @param string $cssUrl
      * @param string $language
-     * 
+     *
      * @throws LwException
      */
     public function printCardForm($moneyInToken, $cssUrl = '', $language = 'en')
