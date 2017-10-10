@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Card;
 use LemonWay\Models\Wallet;
 
@@ -7,12 +8,12 @@ require_once 'ExamplesBootstrap.php';
 $api = ExamplesBootstrap::getApiInstance();
 
 /**
- *		Case : Save a bank card for later rebills. No 3D Secure.
- *		Steps :
- *			- RegisterWallet : creating customer wallet
- *			- RegisterCard : link a bank card to the wallet
- *			- MoneyInWithCardId : debit the card once
- *			- MoneyInWithCardId : debit the card again
+ *      Case : Save a bank card for later rebills. No 3D Secure.
+ *      Steps :
+ *          - RegisterWallet : creating customer wallet
+ *          - RegisterCard : link a bank card to the wallet
+ *          - MoneyInWithCardId : debit the card once
+ *          - MoneyInWithCardId : debit the card again
  */
 
 //RegisterWallet
@@ -22,7 +23,7 @@ $res = $api->RegisterWallet(array('wallet' => $wallet,
     'clientTitle' => Wallet::UNKNOWN,
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print 'Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }
@@ -34,12 +35,12 @@ $res2 = $api->RegisterCard(array('wallet'=>$wallet,
     'cardNumber'=>ExamplesDatas::CARD_SUCCESS_WITHOUT_3D,
     'cardCode'=>ExamplesDatas::CARD_CRYPTO,
     'cardDate'=>ExamplesDatas::CARD_DATE));
-if (isset($res2->lwError)){
+if (isset($res2->lwError)) {
     print 'Error, code '.$res2->lwError->CODE.' : '.$res2->lwError->MSG;
     return;
 }
 print '<hr/><br/>Card saved. ID : '.$res2->card->ID;
-if(isset($res2->card->EXTRA)){
+if (isset($res2->card->EXTRA)) {
     print '<br/>Card EXTRA AUTH : '.$res2->card->EXTRA->AUTH;
     print '<br/>Card EXTRA CTRY : '.$res2->card->EXTRA->CTRY;
 }
@@ -53,7 +54,7 @@ $res3 = $api->MoneyInWithCardId(array('wkToken'=>ExamplesDatas::getRandomId(),
     'cardId'=>$res2->card->ID,
     'autoCommission'=>'0',
     'isPreAuth'=>'0'));
-if (isset($res3->lwError)){
+if (isset($res3->lwError)) {
     print 'Error, code '.$res3->lwError->CODE.' : '.$res3->lwError->MSG;
     return;
 }
@@ -73,7 +74,7 @@ $res4 = $api->MoneyInWithCardId(array('wkToken'=>ExamplesDatas::getRandomId(),
     'cardId'=>(string)$res2->lwXml->CARD->ID,
     'autoCommission'=>'0',
     'isPreAuth'=>'0'));
-if (isset($res4->lwError)){
+if (isset($res4->lwError)) {
     print 'Error, code '.$res4->lwError->CODE.' : '.$res4->lwError->MSG;
     return;
 }

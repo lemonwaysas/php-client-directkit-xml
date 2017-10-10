@@ -13,5 +13,8 @@
   },
   "autoload": {
     "psr-4": { "LemonWay\\": "LemonWay/" }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.8"
   }
 }

@@ -1,125 +1,127 @@
 <?php
 namespace LemonWay\Models;
-class Operation {
+
+class Operation
+{
 
     const STATUS_WAITING_FINALISATION = '0';
     const STATUS_SUCCES = '3';
     const STATUS_ERROR = '4';
     const STATUS_AWAITING_VALIDATION = '16';
 
-	const TYPE_MONEY_IN = '0';
-	const TYPE_MONEY_OUT = '1';
-	const TYPE_P2P = '2';
+    const TYPE_MONEY_IN = '0';
+    const TYPE_MONEY_OUT = '1';
+    const TYPE_P2P = '2';
 
-	const METHOD_BANK_CARD = '0';
-	const METHOD_INCOMING_WIRE = '1';
-	const METHOD_OUTGOING_WIRE = '3';
-	const METHOD_IDEAL = '13';
-	const METHOD_SDD = '14';
-	const METHOD_CHEQUE = '15';
-	const METHOD_NEOSURF = '16';
+    const METHOD_BANK_CARD = '0';
+    const METHOD_INCOMING_WIRE = '1';
+    const METHOD_OUTGOING_WIRE = '3';
+    const METHOD_IDEAL = '13';
+    const METHOD_SDD = '14';
+    const METHOD_CHEQUE = '15';
+    const METHOD_NEOSURF = '16';
 
-	const OWNER_AUTHENTICATED = '00';
-	const OWNER_NOT_AUTHENTICATED = '55';
-	const OWNER_BY_PASS_ON_ACS = '62';
+    const OWNER_AUTHENTICATED = '00';
+    const OWNER_NOT_AUTHENTICATED = '55';
+    const OWNER_BY_PASS_ON_ACS = '62';
 
-	/**
+    /**
      * type {p2p, moneyin, moneyout}
      * @var string
      */
     public $type;
 
-	/**
+    /**
      * ID number
      * @var string
      */
     public $ID;
 
-	/**
+    /**
      * MLABEL iban number or card number
      * @var string
      */
     public $MLABEL;
 
-	/**
+    /**
      * SEN sender wallet (debited wallet)
      * @var string
      */
-	public $SEN;
+    public $SEN;
 
-	/**
+    /**
      * REC receiver wallet (credited wallet)
      * @var string
      */
-	public $REC;
+    public $REC;
 
-	/**
-	 * DATE Date
-	 * @var string
-	 */
-	public $DATE;
+    /**
+     * DATE Date
+     * @var string
+     */
+    public $DATE;
 
-	/**
+    /**
      * DEB debited amount, xx.xx
      * @var string
      */
-	public $DEB;
+    public $DEB;
 
-	/**
+    /**
      * CRED credited amount, xx.xx
      * @var string
      */
-	public $CRED;
+    public $CRED;
 
-	/**
+    /**
      * COM fees automatically sent to merchant wallet
      * @var string
      */
-	public $COM;
+    public $COM;
 
-	/**
+    /**
      * MSG comment
      * @var string
      */
-	public $MSG;
+    public $MSG;
 
-	/**
+    /**
      * STATUS {0,3,4,16}
      * @var string
      */
-	public $STATUS;
+    public $STATUS;
 
-	/**
-	 * PRIVATE_DATA Private data
-	 * @var string
-	 */
-	public $PRIVATE_DATA;
+    /**
+     * PRIVATE_DATA Private data
+     * @var string
+     */
+    public $PRIVATE_DATA;
 
-	/**
-	 * SCHEDULED_DATE Scheduled date
-	 * @var string
-	 */
-	public $SCHEDULED_DATE;
+    /**
+     * SCHEDULED_DATE Scheduled date
+     * @var string
+     */
+    public $SCHEDULED_DATE;
 
-	/**
-	 * TYPE {0,1,2}
-	 * @var string
-	 */
-	public $TYPE;
+    /**
+     * TYPE {0,1,2}
+     * @var string
+     */
+    public $TYPE;
 
-	/**
-	 * MTOKEN
-	 * @var string
-	 */
-	public $MTOKEN;
+    /**
+     * MTOKEN
+     * @var string
+     */
+    public $MTOKEN;
 
-	/**
-	 * METHOD {0,1,3,13,14,15,16}
-	 * @var string
-	 */
-	public $METHOD;
+    /**
+     * METHOD {0,1,3,13,14,15,16}
+     * @var string
+     */
+    public $METHOD;
 
-	/**
+    /**
      * INT_MSG internal error message with codes
      * @var string
      */
@@ -173,5 +175,3 @@ class Operation {
         $this->ORIGIN_ID = $hpayXml->ORIGIN_ID;
 	}
 }
-
-?>

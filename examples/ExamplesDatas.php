@@ -1,7 +1,8 @@
 <?php
 namespace LemonWay\Examples;
 
-class ExamplesDatas{
+class ExamplesDatas
+{
 
     /**
      * FILE_UPLOAD Dummy file to upload
@@ -79,7 +80,8 @@ class ExamplesDatas{
      * Generates a random id
      * @return string
      */
-    public static function getRandomId(){
+    public static function getRandomId()
+    {
         return str_replace('.', '', microtime(true).rand());
     }
 }

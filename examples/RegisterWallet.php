@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
@@ -35,16 +36,13 @@ if (isset($res->lwError)) {
         print '<br/>Wallet satus updated: ' . $res->wallet->ID;
 
         $resk = $api->GetKycStatus(array('updateDate'=>$creationTime));
-        if (isset($resk->lwError)){
+        if (isset($resk->lwError)) {
             print '<br/>Error, code '.$resk->lwError->CODE.' : '.$resk->lwError->MSG;
             return;
         }
         print '<hr/><br/>Modified elements found : '.count($resk->wallets);
-        foreach ($resk->wallets as $wallet)
-        {
+        foreach ($resk->wallets as $wallet) {
             print '<br/>WALLET ID : '.$wallet->ID;
         }
     }
 }
-
-
