@@ -1,7 +1,7 @@
 <?php
 namespace LemonWay\Models;
 class KycDoc {
-
+	const STATUS_ON_HOLD = '0';
 	const STATUS_RECEIVED = '1';
 	const STATUS_CHECKED_VALIDATED = '2';
 	const STATUS_CHECKED_NOT_VALIDATED = '3';
