@@ -1,9 +1,20 @@
+
+# This repository is in Maintenance Mode
+
+We recommend our new partners to use Directkit**Json2** following [this example](https://github.com/lemonwaysas/php-client-directkit-json2)
+
+We will keep supporting this repository only for old customers who couldn't migrate to [Directkit**Json2**](https://github.com/lemonwaysas/php-client-directkit-json2) (recommended) or [SoapClient]:
+
+* we will make only minimum changes to fix small bugs.
+* new features might still be added on request of old customers
+* Big pull-request (which make a lot of changes in the code) will be rejected
+
+----
+
 The LemonWay API (called Directkit) has two implementations: Directkit**Json2** and Directkit**Xml**. 
 There are different ways to call the service depends on the implementation you chose.
 
-**We recommend our new partners to use DirectkitJson2** following [this example](https://github.com/lemonwaysas/php-client-directkit-json2)
-
-It is more network-efficient, and make your codes simpler (you don't need to integrate any third-party codes like this one)
+The json format is usually more network-efficient, and simpler to integrate. It is the reason why the [Directkit**Json2**](https://github.com/lemonwaysas/php-client-directkit-json2) is recommended.
 
 Anyway, if you don't like the json format, you can also send SOAP (XML) requests to the Directkit**Xml**. There are 3 different ways to call the Directkit**Xml**:
 
@@ -19,7 +30,6 @@ Lemon Way PHP SDK (This SDK is only used with Direckit XML)
 =================================================
 Lemon Way SDK is a PHP client library to work with
 [Lemon Way API](http://documentation.lemonway.fr/api-en).
-
 
 Installation with Composer
 -------------------------------------------------
