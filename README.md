@@ -6,8 +6,7 @@ We recommend our new partners to use Directkit**Json2** following [this example]
 We will keep supporting this repository only for old customers who couldn't migrate to [Directkit**Json2**](https://github.com/lemonwaysas/php-client-directkit-json2) (recommended) or [SoapClient]:
 
 * we will make only minimum changes to fix small bugs.
-* new features might still be added on request of old customers
-* Big pull-request (which make a lot of changes in the code) will be rejected
+* Big pull-request (which make a lot of changes in the code) will be rejected.
 
 ----
 
