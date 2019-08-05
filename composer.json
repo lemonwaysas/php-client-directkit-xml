@@ -1,17 +1,30 @@
 {
-  "name": "lemonway/php-sdk",
-  "description": "PHP SDK for Lemon Way API",
-  "type": "library",
-  "keywords": ["Lemon Way","LemonWay","wallet","payment","marketplace"],
-  "homepage": "https://github.com/lemonwaysas/php-client-directkit-xml",
-  "minimum-stability": "stable",
-  "license": "MIT",
-  "require": {
-    "php": ">=5.4.0",
-    "ext-curl": "*",
-    "ext-openssl": "*"
-  },
-  "autoload": {
-    "psr-4": { "LemonWay\\": "LemonWay/" }
-  }
+    "name": "lemonway/php-sdk",
+    "description": "PHP SDK for Lemon Way API",
+    "type": "library",
+    "keywords": [
+        "Lemon Way",
+        "LemonWay",
+        "wallet",
+        "payment",
+        "marketplace"
+    ],
+    "homepage": "https://github.com/lemonwaysas/php-client-directkit-xml",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4.0",
+        "ext-curl": "*",
+        "ext-openssl": "*",
+        "ext-libxml": "*",
+        "ext-simplexml": "*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "LemonWay\\": "LemonWay/"
+        }
+    }
 }

@@ -1,6 +1,6 @@
 <?php
-namespace LemonWay\Lib;
 
+namespace LemonWay\Lib;
 
 class LwException extends \Exception
 {
@@ -15,8 +15,8 @@ class LwException extends \Exception
         parent::__construct($message, $code, $previous);
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
     }
-
 }

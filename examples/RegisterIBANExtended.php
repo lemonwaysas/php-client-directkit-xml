@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\Wallet;
 
 require_once 'ExamplesBootstrap.php';
@@ -21,7 +22,7 @@ $res = $api->RegisterWallet(array(
     'clientFirstName' => 'Paul',
     'clientLastName' => 'Dupond'
 ));
-if (isset($res->lwError)){
+if (isset($res->lwError)) {
     print '<br/>Error, code '.$res->lwError->CODE.' : '.$res->lwError->MSG;
     return;
 }

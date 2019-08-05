@@ -1,7 +1,7 @@
 <?php
+
 namespace LemonWay\Models;
-class LwModel {
 
+class LwModel
+{
 }
-
-?>

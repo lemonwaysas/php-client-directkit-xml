@@ -1,5 +1,6 @@
 <?php
 namespace LemonWay\Examples;
+
 use LemonWay\Models\KycDoc;
 use LemonWay\Models\SddMandate;
 use LemonWay\Models\Wallet;
@@ -60,7 +61,7 @@ if (isset($res->lwError)) {
             'bic' => ExamplesDatas::IBAN_BIC,
             'iban' => ExamplesDatas::IBAN_NUMBER,
             'isRecurring' => SddMandate::RECURRING));
-        if (isset($resSdd->lwError)){
+        if (isset($resSdd->lwError)) {
             print '<br/>Error, code '.$resSdd->lwError->CODE.' : '.$resSdd->lwError->MSG;
             return;
         } else {
@@ -85,12 +86,7 @@ if (isset($res->lwError)) {
                 $url = $api->config->wkUrl.'?signingToken='.$resSignDoc->lwXml->SIGNDOCUMENT->TOKEN;
                 print '<br /><br />2 actions remaining<br />1) Call WEBKIT URL and Sign the document <a target="_blank" href="'.$url.'">'.$url.'</a>';
                 print '<br />2) After the end of the step 1, <a target="_blank" href="../MoneyInSdd.php?walletID='.$walletID.'&sddMandateID='.$resSdd->sddMandate->ID.'">Test the Money In Sdd Mandate </a>';
-
-
             }
         }
     }
-
 }
-
-
