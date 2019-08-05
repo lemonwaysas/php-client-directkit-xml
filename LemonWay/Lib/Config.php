@@ -61,4 +61,10 @@ class Config
      * @var string
      */
     public $remote_addr;
+    /**
+     * xmlns
+     *
+     * @var string
+     */
+    public $xmlns = 'Service_mb_xml';
 }
