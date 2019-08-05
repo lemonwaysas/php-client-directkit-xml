@@ -1,3 +1,10 @@
+### Fork update
+
+- `xmlns` is configurable in **LemonwayApi** _class_, default value is `Service_mb_xml`
+- add [Phpcs](https://github.com/squizlabs/PHP_CodeSniffer) on `app` directory only (exclude the rule of method name in Camel case)
+
+
+---
 
 # This repository is in Maintenance Mode
 
