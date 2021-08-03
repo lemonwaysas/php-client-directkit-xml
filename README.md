@@ -1,3 +1,4 @@
+⚠️WARNING: This client is deprecated⚠️ 
 
 # This repository is in Maintenance Mode
 
